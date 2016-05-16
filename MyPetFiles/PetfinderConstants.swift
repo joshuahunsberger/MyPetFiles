@@ -6,9 +6,18 @@
 //  Copyright © 2016 Joshua Hunsberger. All rights reserved.
 //
 
-import Foundation
+/**
+    Extension to Petfinder client that stores structs representing the constant values associated with the
+    Petfinder API.
+ 
+    The Petfinder API is documented here: https://www.petfinder.com/developers/api-docs
+ */
+
+// MARK: PetfinderClient (Constants)
 
 extension PetfinderClient {
+    
+    //MARK: URL constants
     
     struct Constants {
         static let APIScheme = "http"
