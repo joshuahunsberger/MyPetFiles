@@ -48,6 +48,12 @@ extension PetfinderClient {
         static let ResultOffset = "offset"
         static let RecordCount = "count"
         static let ResultFormat = "format"
+        static let Animal = "animal"
+        static let Breed = "breed"
+        static let Size = "size"
+        static let Sex = "sex"
+        static let Age = "age"
+        static let Output = "output"
     }
     
     
@@ -57,5 +63,7 @@ extension PetfinderClient {
         static let Petfinder = "petfinder"
         static let Shelters = "shelters"
         static let Shelter = "shelter"
+        static let Pets = "pets"
+        static let Pet = "pet"
     }
 }
