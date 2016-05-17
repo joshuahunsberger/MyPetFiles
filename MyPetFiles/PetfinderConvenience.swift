@@ -243,4 +243,70 @@ extension PetfinderClient {
             completionHandlerForGetPet(results: pet, error: nil)
         }
     }
+    
+    /**
+     Function to retrieve pets associated with a given shelter from the Petfinder
+     
+     API Parameters and properties in ParameterKeys struct:
+     
+     Required:
+     - Developer Key: your developer key
+        - APIKey
+     - ID: shelter ID (e.g. NJ94)
+        - ID
+     
+     Optional:
+     - Token: Session token
+        - SessionToken
+     - Status: A=adoptable, H=hold, P=pending, X=adopted/removed
+        - Status     
+     - Offset: offset into the result set (default is 0)
+        - ResultOffset
+     - Count: how many records to return for this particular API call (default is 25)
+        - RecordCount
+     - Output: How much of each record to return: basic (no description) or full (includes description)
+        - Output
+     - Format: Response format: xml, json
+        - ResultFormat
+     
+     - Parameters:
+        - parameters: The key value pairs to send to Petfinder.
+        - completionHandlerForGetShelterPets: The completion handler in which the results will be handled or errors processed.
+     */
+    func getShelterPets(parameters: [String: AnyObject], completionHandlerForGetShelterPets: (results: AnyObject!, error: NSError?) -> Void) {
+      func sendError(error: String) {
+          let userInfo = [NSLocalizedDescriptionKey: error]
+          completionHandlerForGetShelterPets(results: nil, error: NSError(domain: "getShelterPets", code: 1, userInfo: userInfo))
+      }
+      
+      taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+          guard (error == nil) else {
+              sendError(error!.localizedDescription)
+              return
+          }
+          
+          guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
+              sendError("Unable to retrieve petfinder key.")
+              return
+          }
+          
+          guard let pets = petfinder[JSONResponseKeys.Pets] as? [String: AnyObject] else {
+              sendError("Unable to retrieve pets key.")
+              return
+          }
+          
+          guard let petsArray = pets[JSONResponseKeys.Pet] as? [[String: AnyObject]] else {
+              sendError("Unable to retrieve pet array.")
+              return
+          }
+          
+          if petsArray.count == 0 {
+              sendError("No pets found. Try a different search.")
+              return
+          }
+          
+          // Call the completion handler with the pet JSON
+          completionHandlerForGetShelterPets(results: petsArray, error: nil)
+      }
+    }
 }
