@@ -37,4 +37,25 @@ extension PetfinderClient {
         static let ShelterListByBreed = "shelter.listByBreed"
     }
     
+    
+    // MARK: Parameter Keys
+    
+    struct ParameterKeys {
+        static let APIKey = "key"
+        static let SessionToken = "token"
+        static let Location = "location"
+        static let Name = "name"
+        static let ResultOffset = "offset"
+        static let RecordCount = "count"
+        static let ResultFormat = "format"
+    }
+    
+    
+    // MARK: JSON Response Keys
+    
+    struct JSONResponseKeys {
+        static let Petfinder = "petfinder"
+        static let Shelters = "shelters"
+        static let Shelter = "shelter"
+    }
 }
