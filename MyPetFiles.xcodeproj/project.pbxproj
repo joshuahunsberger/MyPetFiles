@@ -15,6 +15,7 @@
 		42FE64971CE94FF80022B4F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FE64951CE94FF80022B4F6 /* LaunchScreen.storyboard */; };
 		42FE64A31CE95B4E0022B4F6 /* PetfinderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64A21CE95B4E0022B4F6 /* PetfinderClient.swift */; };
 		42FE64A51CE95F470022B4F6 /* PetfinderConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64A41CE95F470022B4F6 /* PetfinderConstants.swift */; };
+		42FE64A71CEAA8880022B4F6 /* PetfinderConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64A61CEAA8880022B4F6 /* PetfinderConvenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		42FE64981CE94FF80022B4F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42FE64A21CE95B4E0022B4F6 /* PetfinderClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetfinderClient.swift; sourceTree = "<group>"; };
 		42FE64A41CE95F470022B4F6 /* PetfinderConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetfinderConstants.swift; sourceTree = "<group>"; };
+		42FE64A61CEAA8880022B4F6 /* PetfinderConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetfinderConvenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				42FE64A21CE95B4E0022B4F6 /* PetfinderClient.swift */,
+				42FE64A61CEAA8880022B4F6 /* PetfinderConvenience.swift */,
 				42FE64A41CE95F470022B4F6 /* PetfinderConstants.swift */,
 			);
 			name = Petfinder;
@@ -173,6 +176,7 @@
 				42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */,
 				42FE64921CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld in Sources */,
 				42FE64A51CE95F470022B4F6 /* PetfinderConstants.swift in Sources */,
+				42FE64A71CEAA8880022B4F6 /* PetfinderConvenience.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
