@@ -54,6 +54,7 @@ extension PetfinderClient {
         static let Sex = "sex"
         static let Age = "age"
         static let Output = "output"
+        static let ID = "id"
     }
     
     

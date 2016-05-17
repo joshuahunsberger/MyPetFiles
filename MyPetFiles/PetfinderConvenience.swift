@@ -147,4 +147,52 @@ extension PetfinderClient {
             completionHandlerForSearchPets(results: petsArray, error: nil)
         }
     }
+    
+    /**
+     Function to retrieve a shelter by ID from the Petfinder
+     
+     API Parameters and properties in ParameterKeys struct:
+     
+     Required:
+     - Developer Key: your developer key
+        - APIKey
+     - ID: shelter ID (e.g. NJ94)
+        - ID
+     
+     Optional:
+     - Token: Session token
+        - SessionToken
+     - Format: Response format: xml, json
+        - ResultFormat
+     
+     - Parameters:
+        - parameters: The key value pairs to send to Petfinder.
+        - completionHandlerForGetShelter: The completion handler in which the results will be handled or errors processed.
+     */
+    func getShelter(parameters: [String: AnyObject], completionHandlerForGetShelter: (results: AnyObject!, error: NSError?) -> Void) {
+        func sendError(error: String) {
+            let userInfo = [NSLocalizedDescriptionKey: error]
+            completionHandlerForGetShelter(results: nil, error: NSError(domain: "getShelter", code: 1, userInfo: userInfo))
+        }
+        
+        taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+            guard (error == nil) else {
+                sendError(error!.localizedDescription)
+                return
+            }
+            
+            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
+                sendError("Unable to retrieve petfinder key.")
+                return
+            }
+            
+            guard let shelter = petfinder[JSONResponseKeys.Shelter] as? [String: AnyObject] else {
+                sendError("Unable to retrieve shelter key.")
+                return
+            }
+            
+            // Call the completion handler with the shelter JSON
+            completionHandlerForGetShelter(results: shelter, error: nil)
+        }
+    }
 }
