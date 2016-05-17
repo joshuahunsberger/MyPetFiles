@@ -108,8 +108,8 @@ extension PetfinderClient {
         - ResultFormat
      
      - Parameters:
-     - parameters: The key value pairs to send to Petfinder.
-     - completionHandlerForSearchPets: The completion handler in which the results will be handled or errors processed.
+        - parameters: The key value pairs to send to Petfinder.
+        - completionHandlerForSearchPets: The completion handler in which the results will be handled or errors processed.
      */
     func searchPets(parameters: [String: AnyObject], completionHandlerForSearchPets: (results: AnyObject!, error: NSError?) -> Void) {
         func sendError(error: String){
