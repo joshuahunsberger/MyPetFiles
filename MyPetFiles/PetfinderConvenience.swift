@@ -309,4 +309,62 @@ extension PetfinderClient {
           completionHandlerForGetShelterPets(results: petsArray, error: nil)
       }
     }
+    
+    /**
+     Function to retrieve a list of breeds for a particular animal.
+     
+     API Parameters and properties in ParameterKeys struct:
+     
+     Required:
+     - Developer Key: your developer key
+        - APIKey
+     - Animal: type of animal (barnyard, bird, cat, dog, horse, pig, reptile, smallfurry)
+        - Animal
+     
+     Optional:
+     - Token: Session token
+        - SessionToken
+     - Format: Response format: xml, json
+        - ResultFormat
+     
+     - Parameters:
+        - parameters: The key value pairs to send to Petfinder.
+        - completionHandlerForGetShelterPets: The completion handler in which the results will be handled or errors processed.
+     */
+    func getBreeds(parameters: [String: AnyObject], completionHandlerForGetBreeds: (results: AnyObject!, error: NSError?) -> Void) {
+        func sendError(error: String) {
+            let userInfo = [NSLocalizedDescriptionKey: error]
+            completionHandlerForGetBreeds(results: nil, error: NSError(domain: "getBreeds", code: 1, userInfo: userInfo))
+        }
+        
+        taskForGETMethod(Methods.BreedList, parameters: parameters) { (result, error) in
+            guard (error == nil) else {
+                sendError(error!.localizedDescription)
+                return
+            }
+            
+            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
+                sendError("Unable to retrieve petfinder key.")
+                return
+            }
+            
+            guard let breeds = petfinder[JSONResponseKeys.Breeds] as? [String: AnyObject] else {
+                sendError("Unable to retrieve breeds key.")
+                return
+            }
+            
+            guard let breedArray = breeds[JSONResponseKeys.Breed] as? [[String: AnyObject]] else {
+                sendError("Unable to retrieve breed array.")
+                return
+            }
+            
+            if breedArray.count == 0 {
+                sendError("No breeds found. Try a different search.")
+                return
+            }
+            
+            // Call the completion handler with the breed array JSON
+            completionHandlerForGetBreeds(results: breedArray, error: nil)
+        }
+    }
 }

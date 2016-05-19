@@ -66,5 +66,7 @@ extension PetfinderClient {
         static let Shelter = "shelter"
         static let Pets = "pets"
         static let Pet = "pet"
+        static let Breeds = "breeds"
+        static let Breed = "breed"
     }
 }
