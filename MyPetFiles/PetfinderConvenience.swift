@@ -117,7 +117,7 @@ extension PetfinderClient {
             completionHandlerForSearchPets(results: nil, error: NSError(domain: "searchShelters", code: 1, userInfo: userInfo))
         }
         
-        taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+        taskForGETMethod(Methods.FindPet, parameters: parameters) { (result, error) in
             guard (error == nil) else {
                 sendError(error!.localizedDescription)
                 return
@@ -175,7 +175,7 @@ extension PetfinderClient {
             completionHandlerForGetShelter(results: nil, error: NSError(domain: "getShelter", code: 1, userInfo: userInfo))
         }
         
-        taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+        taskForGETMethod(Methods.GetShelter, parameters: parameters) { (result, error) in
             guard (error == nil) else {
                 sendError(error!.localizedDescription)
                 return
@@ -223,7 +223,7 @@ extension PetfinderClient {
             completionHandlerForGetPet(results: nil, error: NSError(domain: "getPet", code: 1, userInfo: userInfo))
         }
         
-        taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+        taskForGETMethod(Methods.GetPet, parameters: parameters) { (result, error) in
             guard (error == nil) else {
                 sendError(error!.localizedDescription)
                 return
@@ -279,7 +279,7 @@ extension PetfinderClient {
           completionHandlerForGetShelterPets(results: nil, error: NSError(domain: "getShelterPets", code: 1, userInfo: userInfo))
       }
       
-      taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
+      taskForGETMethod(Methods.GetShelterPets, parameters: parameters) { (result, error) in
           guard (error == nil) else {
               sendError(error!.localizedDescription)
               return
