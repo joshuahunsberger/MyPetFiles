@@ -58,6 +58,14 @@ extension PetfinderClient {
     }
     
     
+    // MARK: Parameter Values
+    
+    struct ParameterValues {
+        static let APIKey = "" /* Specify your API Key here. */
+        static let JSONFormat = "json"
+    }
+    
+    
     // MARK: JSON Response Keys
     
     struct JSONResponseKeys {
