@@ -78,9 +78,15 @@ class PetfinderClient {
         components.path = method
         
         if let parameters = parameters {
+            // Add standard parameters.  
+            // Every request will require the API key, and the code expects to receive a JSON response from the API.
+            var newParameters = parameters
+            newParameters[ParameterKeys.APIKey] = ParameterValues.APIKey
+            newParameters[ParameterKeys.ResultFormat] = ParameterValues.JSONFormat
+                
             components.queryItems = [NSURLQueryItem]()
             
-            for(key, value) in parameters {
+            for(key, value) in newParameters {
                 let queryItem = NSURLQueryItem(name: key, value: "\(value)")
                 components.queryItems!.append(queryItem)
             }
