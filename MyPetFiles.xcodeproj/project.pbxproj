@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4277A2BC1CF115C30079A2C0 /* dr_mj_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */; };
 		42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64891CE94FF80022B4F6 /* AppDelegate.swift */; };
 		42FE648C1CE94FF80022B4F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE648B1CE94FF80022B4F6 /* ViewController.swift */; };
 		42FE648F1CE94FF80022B4F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FE648D1CE94FF80022B4F6 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dr_mj_small.png; sourceTree = "<group>"; };
 		42FE64861CE94FF80022B4F6 /* MyPetFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPetFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FE64891CE94FF80022B4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42FE648B1CE94FF80022B4F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				42FE64891CE94FF80022B4F6 /* AppDelegate.swift */,
 				42FE648B1CE94FF80022B4F6 /* ViewController.swift */,
 				42FE648D1CE94FF80022B4F6 /* Main.storyboard */,
+				4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */,
 				42FE64931CE94FF80022B4F6 /* Assets.xcassets */,
 				42FE64951CE94FF80022B4F6 /* LaunchScreen.storyboard */,
 				42FE64981CE94FF80022B4F6 /* Info.plist */,
@@ -160,6 +163,7 @@
 			files = (
 				42FE64971CE94FF80022B4F6 /* LaunchScreen.storyboard in Resources */,
 				42FE64941CE94FF80022B4F6 /* Assets.xcassets in Resources */,
+				4277A2BC1CF115C30079A2C0 /* dr_mj_small.png in Resources */,
 				42FE648F1CE94FF80022B4F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +332,7 @@
 				42FE649D1CE94FF80022B4F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
