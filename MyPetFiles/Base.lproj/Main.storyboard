@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--My Pet Files-->
@@ -59,6 +60,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="View Shelters"/>
+                                <connections>
+                                    <segue destination="oUy-zM-iIF" kind="show" id="PF3-cv-jPV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRf-th-vM3">
                                 <rect key="frame" x="200" y="426" width="200" height="36"/>
@@ -89,6 +93,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="563" y="487"/>
+        </scene>
+        <!--Find a Shelter-->
+        <scene sceneID="vEm-w8-dsi">
+            <objects>
+                <viewController title="Find a Shelter" id="oUy-zM-iIF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xoc-GO-Yh2"/>
+                        <viewControllerLayoutGuide type="bottom" id="91g-ge-Auk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ewd-Na-z98">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Shelter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-wk-iIT">
+                                <rect key="frame" x="186" y="101" width="229" height="33"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="229" id="AD2-tI-ti8"/>
+                                    <constraint firstAttribute="height" constant="33" id="lzd-xO-Vje"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Location (Zip or City, State)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xq5-ph-hfA">
+                                <rect key="frame" x="20" y="195" width="560" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QpW-4l-3vo"/>
+                                    <constraint firstAttribute="width" constant="285" id="eJ7-Ol-OKE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="eJ7-Ol-OKE"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Group Name (Optional)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9c7-gw-f7U">
+                                <rect key="frame" x="20" y="246" width="560" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="VB4-Ft-JzZ"/>
+                                    <constraint firstAttribute="width" constant="285" id="p4s-oZ-9bK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="p4s-oZ-9bK"/>
+                                    </mask>
+                                </variation>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCV-vr-dVU">
+                                <rect key="frame" x="20" y="315" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="285" id="Gw9-ZH-Ce3"/>
+                                    <constraint firstAttribute="height" constant="30" id="RwD-jq-55f"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gw9-ZH-Ce3"/>
+                                    </mask>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xq5-ph-hfA" firstAttribute="top" secondItem="sPv-wk-iIT" secondAttribute="bottom" constant="61" id="0Li-pA-Boy"/>
+                            <constraint firstItem="xq5-ph-hfA" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="6rt-d6-9l2"/>
+                            <constraint firstItem="9c7-gw-f7U" firstAttribute="top" secondItem="xq5-ph-hfA" secondAttribute="bottom" constant="21" id="AQB-Fz-g9E"/>
+                            <constraint firstItem="sPv-wk-iIT" firstAttribute="top" secondItem="Xoc-GO-Yh2" secondAttribute="bottom" constant="37" id="GIj-je-9ri"/>
+                            <constraint firstItem="RCV-vr-dVU" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="PF1-qz-Yn6"/>
+                            <constraint firstItem="xq5-ph-hfA" firstAttribute="leading" secondItem="Ewd-Na-z98" secondAttribute="leadingMargin" id="SEJ-SS-iuy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xq5-ph-hfA" secondAttribute="trailing" id="UJB-a3-S8E"/>
+                            <constraint firstItem="sPv-wk-iIT" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="V0R-3w-o8M"/>
+                            <constraint firstItem="RCV-vr-dVU" firstAttribute="width" secondItem="9c7-gw-f7U" secondAttribute="width" id="b5M-k1-G1Q"/>
+                            <constraint firstItem="9c7-gw-f7U" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="oso-JU-4Fa"/>
+                            <constraint firstItem="9c7-gw-f7U" firstAttribute="width" secondItem="xq5-ph-hfA" secondAttribute="width" id="qdj-XB-hf7"/>
+                            <constraint firstItem="RCV-vr-dVU" firstAttribute="top" secondItem="9c7-gw-f7U" secondAttribute="bottom" constant="39" id="yb6-AY-m0z"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Lg-NS-oht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1426" y="487"/>
         </scene>
     </scenes>
     <resources>
