@@ -45,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4277A2BD1CF13F700079A2C0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				42FE648D1CE94FF80022B4F6 /* Main.storyboard */,
+				4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */,
+				42FE64931CE94FF80022B4F6 /* Assets.xcassets */,
+				42FE64951CE94FF80022B4F6 /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		42FE647D1CE94FF80022B4F6 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +78,7 @@
 				42FE649E1CE958C50022B4F6 /* Model */,
 				42FE64891CE94FF80022B4F6 /* AppDelegate.swift */,
 				42FE648B1CE94FF80022B4F6 /* ViewController.swift */,
-				42FE648D1CE94FF80022B4F6 /* Main.storyboard */,
-				4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */,
-				42FE64931CE94FF80022B4F6 /* Assets.xcassets */,
-				42FE64951CE94FF80022B4F6 /* LaunchScreen.storyboard */,
+				4277A2BD1CF13F700079A2C0 /* Assets */,
 				42FE64981CE94FF80022B4F6 /* Info.plist */,
 				42FE64901CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld */,
 			);
