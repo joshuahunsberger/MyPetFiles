@@ -161,6 +161,9 @@
                                         <exclude reference="Gw9-ZH-Ce3"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="oUy-zM-iIF" eventType="touchUpInside" id="wL4-9s-Ii7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -179,6 +182,10 @@
                             <constraint firstItem="RCV-vr-dVU" firstAttribute="top" secondItem="9c7-gw-f7U" secondAttribute="bottom" constant="39" id="yb6-AY-m0z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="groupNameTextField" destination="9c7-gw-f7U" id="5nv-u7-XbU"/>
+                        <outlet property="locationTextField" destination="xq5-ph-hfA" id="D4E-OU-ejb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Lg-NS-oht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
