@@ -23,7 +23,15 @@ class ShelterSearchViewController: UIViewController {
             alert.addAction(dismissAction)
             self.presentViewController(alert, animated: false, completion: nil)
         } else {
-            // TODO: Initiate search based on text fields
+            let location = locationTextField.text!
+            let groupName = groupNameTextField.text!
+            
+            let shelterVC = storyboard?.instantiateViewControllerWithIdentifier("ShelterTableViewController") as! ShelterTableViewController
+            
+            shelterVC.location = location
+            shelterVC.groupName = groupName
+            
+            self.navigationController!.pushViewController(shelterVC, animated: true)
         }
     }
 }
