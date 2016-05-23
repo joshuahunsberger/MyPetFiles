@@ -28,13 +28,13 @@ extension PetfinderClient {
     // MARK: API Method Constants
     
     struct Methods {
-        static let BreedList = "breed.list"
-        static let GetPet = "pet.get"
-        static let FindPet = "pet.find"
-        static let FindShelter = "shelter.find"
-        static let GetShelter = "shelter.get"
-        static let GetShelterPets = "shelter.getPets"
-        static let ShelterListByBreed = "shelter.listByBreed"
+        static let BreedList = "/breed.list"
+        static let GetPet = "/pet.get"
+        static let FindPet = "/pet.find"
+        static let FindShelter = "/shelter.find"
+        static let GetShelter = "/shelter.get"
+        static let GetShelterPets = "/shelter.getPets"
+        static let ShelterListByBreed = "/shelter.listByBreed"
     }
     
     
@@ -61,7 +61,7 @@ extension PetfinderClient {
     // MARK: Parameter Values
     
     struct ParameterValues {
-        static let APIKey = "" /* Specify your API Key here. */
+        static let APIKey = "565238d1f77d40730ae9613e455a30d0" /* Specify your API Key here. */
         static let JSONFormat = "json"
     }
     
