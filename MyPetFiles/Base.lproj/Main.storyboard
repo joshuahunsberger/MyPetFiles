@@ -191,6 +191,34 @@
             </objects>
             <point key="canvasLocation" x="1426" y="487"/>
         </scene>
+        <!--Shelter Table View-->
+        <scene sceneID="Pco-gX-Xim">
+            <objects>
+                <tableViewController storyboardIdentifier="ShelterTableViewController" title="Shelter Table View" id="bT1-la-I3D" customClass="ShelterTableViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ms6-C5-WPR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="MgY-36-8bm">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MgY-36-8bm" id="3TH-iD-5eR">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bT1-la-I3D" id="xWR-Yh-Xqq"/>
+                            <outlet property="delegate" destination="bT1-la-I3D" id="jDk-MY-yQq"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARC-3u-ttQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2192" y="487"/>
+        </scene>
     </scenes>
     <resources>
         <image name="dr_mj_small.png" width="512" height="512"/>
