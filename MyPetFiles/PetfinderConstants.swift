@@ -20,7 +20,7 @@ extension PetfinderClient {
     // MARK: URL constants
     
     struct Constants {
-        static let APIScheme = "http"
+        static let APIScheme = "https"
         static let APIHost = "api.petfinder.com"
     }
     
