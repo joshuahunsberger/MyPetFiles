@@ -69,6 +69,10 @@ extension PetfinderClient {
     // MARK: JSON Response Keys
     
     struct JSONResponseKeys {
+        static let Status = "status"
+        static let Code = "code"
+        static let Message = "message"
+        
         static let Petfinder = "petfinder"
         static let Shelters = "shelters"
         static let Shelter = "shelter"
