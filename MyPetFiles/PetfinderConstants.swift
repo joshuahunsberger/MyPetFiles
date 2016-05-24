@@ -76,5 +76,18 @@ extension PetfinderClient {
         static let Pet = "pet"
         static let Breeds = "breeds"
         static let Breed = "breed"
+        
+        static let ID = "id"
+        static let Name = "name"
+        static let City = "city"
+        static let State = "state"
+        static let Country = "country"
+        static let Zip = "zip"
+        static let Phone = "phone"
+        static let Email = "email"
+        static let Address1 = "address1"
+        static let Address2 = "address2"
+        
+        static let Tag = "$t"
     }
 }
