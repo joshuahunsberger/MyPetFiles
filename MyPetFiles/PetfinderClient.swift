@@ -61,7 +61,48 @@ class PetfinderClient {
                 sendError("JSON error: \(error.localizedDescription)")
             }
             
-            completionHandlerForGET(result: parsedResult, error: nil)
+            guard let petfinder = parsedResult[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
+                sendError("Unable to retrieve petfinder key.")
+                return
+            }
+            
+            guard let header = petfinder[JSONResponseKeys.Header] as? [String: AnyObject] else {
+                sendError("Unable to accesss header.")
+                return
+            }
+            
+            guard let status = header[JSONResponseKeys.Status] as? [String: AnyObject] else {
+                sendError("Cannot access status from Petfinder.")
+                return
+            }
+            
+            guard let codeArray = status[JSONResponseKeys.Code] as? [String: AnyObject] else {
+                sendError("Cannot access status array from Petfinder.")
+                return
+            }
+            
+            guard let code = codeArray[JSONResponseKeys.Tag]?.integerValue else {
+                sendError("Cannot access status code from Petfinder.")
+                return
+            }
+            
+            
+            if (code != JSONResponseValues.SuccessStatus) {
+                guard let messageArray = status[JSONResponseKeys.Message] else {
+                    sendError("Cannot access status message array from Petfinder.")
+                    return
+                }
+                
+                guard let message = messageArray[JSONResponseKeys.Tag] as? String else {
+                    sendError("Unable to access status message from Petfinder.")
+                    return
+                }
+                
+                sendError("Petfinder sent an error: \(message)")
+                return
+            }
+            
+            completionHandlerForGET(result: petfinder, error: nil)
         }
         task.resume()
         
