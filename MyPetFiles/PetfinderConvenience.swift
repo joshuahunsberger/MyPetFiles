@@ -49,12 +49,7 @@ extension PetfinderClient {
                 return
             }
             
-            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-                sendError("Unable to retrieve petfinder key.")
-                return
-            }
-            
-            guard let shelters = petfinder[JSONResponseKeys.Shelters] as? [String: AnyObject] else {
+            guard let shelters = result[JSONResponseKeys.Shelters] as? [String: AnyObject] else {
                 sendError("Unable to retrieve shelters key.")
                 return
             }
@@ -123,12 +118,7 @@ extension PetfinderClient {
                 return
             }
             
-            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-                sendError("Unable to retrieve petfinder key.")
-                return
-            }
-            
-            guard let pets = petfinder[JSONResponseKeys.Pets] as? [String: AnyObject] else {
+            guard let pets = result[JSONResponseKeys.Pets] as? [String: AnyObject] else {
                 sendError("Unable to retrieve pets key.")
                 return
             }
@@ -180,13 +170,8 @@ extension PetfinderClient {
                 sendError(error!.localizedDescription)
                 return
             }
-            
-            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-                sendError("Unable to retrieve petfinder key.")
-                return
-            }
-            
-            guard let shelter = petfinder[JSONResponseKeys.Shelter] as? [String: AnyObject] else {
+
+            guard let shelter = result[JSONResponseKeys.Shelter] as? [String: AnyObject] else {
                 sendError("Unable to retrieve shelter key.")
                 return
             }
@@ -229,12 +214,7 @@ extension PetfinderClient {
                 return
             }
             
-            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-                sendError("Unable to retrieve petfinder key.")
-                return
-            }
-            
-            guard let pet = petfinder[JSONResponseKeys.Pet] as? [String: AnyObject] else {
+            guard let pet = result[JSONResponseKeys.Pet] as? [String: AnyObject] else {
                 sendError("Unable to retrieve pet key.")
                 return
             }
@@ -284,13 +264,8 @@ extension PetfinderClient {
               sendError(error!.localizedDescription)
               return
           }
-          
-          guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-              sendError("Unable to retrieve petfinder key.")
-              return
-          }
-          
-          guard let pets = petfinder[JSONResponseKeys.Pets] as? [String: AnyObject] else {
+        
+          guard let pets = result[JSONResponseKeys.Pets] as? [String: AnyObject] else {
               sendError("Unable to retrieve pets key.")
               return
           }
@@ -343,12 +318,7 @@ extension PetfinderClient {
                 return
             }
             
-            guard let petfinder = result[JSONResponseKeys.Petfinder] as? [String: AnyObject] else {
-                sendError("Unable to retrieve petfinder key.")
-                return
-            }
-            
-            guard let breeds = petfinder[JSONResponseKeys.Breeds] as? [String: AnyObject] else {
+            guard let breeds = result[JSONResponseKeys.Breeds] as? [String: AnyObject] else {
                 sendError("Unable to retrieve breeds key.")
                 return
             }
