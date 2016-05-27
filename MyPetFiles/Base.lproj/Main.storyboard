@@ -235,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="2192" y="487"/>
         </scene>
-        <!--Shelter-->
+        <!--Shelter Detail View Controller-->
         <scene sceneID="FM3-Vb-f6C">
             <objects>
-                <viewController storyboardIdentifier="ShelterDetailViewController" title="Shelter" id="Xed-0l-yC6" customClass="ShelterDetailViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShelterDetailViewController" id="Xed-0l-yC6" customClass="ShelterDetailViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nNb-ce-Gqz"/>
                         <viewControllerLayoutGuide type="bottom" id="GtC-cf-pGD"/>
@@ -247,52 +247,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shelter Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOH-Ba-tFi">
-                                <rect key="frame" x="19" y="20" width="560" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shelter Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GOH-Ba-tFi">
+                                <rect key="frame" x="19" y="28" width="561" height="90"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="V3V-V9-Xzt"/>
+                                    <constraint firstAttribute="height" constant="90" id="V3V-V9-Xzt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvr-bt-EgV">
-                                <rect key="frame" x="268" y="100" width="63" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPf-Fr-Qy0">
-                                <rect key="frame" x="231" y="244" width="138" height="30"/>
+                                <rect key="frame" x="231" y="331" width="138" height="30"/>
                                 <state key="normal" title="View Pets at Shelter"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-dF-eoh">
-                                <rect key="frame" x="269" y="151" width="61" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-dF-eoh">
+                                <rect key="frame" x="269" y="224" width="61" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="EBa-he-q05"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-6G-yjj">
-                                <rect key="frame" x="233" y="195" width="135" height="30"/>
+                                <rect key="frame" x="232" y="285" width="135" height="30"/>
                                 <state key="normal" title="Visit Petfinder Page"/>
                                 <connections>
                                     <action selector="shelterPageButtonPressed:" destination="Xed-0l-yC6" eventType="touchUpInside" id="eHu-RC-GxU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvr-bt-EgV">
+                                <rect key="frame" x="269" y="142" width="63" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="4O7-j0-cGy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="top" secondItem="GOH-Ba-tFi" secondAttribute="bottom" constant="59" id="3wz-cJ-yqa"/>
-                            <constraint firstItem="GOH-Ba-tFi" firstAttribute="centerX" secondItem="Rvr-bt-EgV" secondAttribute="centerX" id="5vx-JG-VKa"/>
+                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="top" secondItem="GOH-Ba-tFi" secondAttribute="bottom" constant="24" id="3wz-cJ-yqa"/>
+                            <constraint firstItem="tif-6G-yjj" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="8wX-GL-9Ej"/>
                             <constraint firstItem="Rvr-bt-EgV" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="BKl-MU-hrl"/>
-                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="top" secondItem="Rvr-bt-EgV" secondAttribute="bottom" constant="30" id="MJp-iD-QYu"/>
-                            <constraint firstItem="GOH-Ba-tFi" firstAttribute="top" secondItem="nNb-ce-Gqz" secondAttribute="bottom" id="PVi-y6-i2A"/>
-                            <constraint firstItem="GOH-Ba-tFi" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" constant="-1" id="QMT-zH-zbv"/>
-                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="centerX" secondItem="wJ8-dF-eoh" secondAttribute="centerX" id="STj-TY-yZT"/>
-                            <constraint firstItem="TPf-Fr-Qy0" firstAttribute="top" secondItem="tif-6G-yjj" secondAttribute="bottom" constant="19" id="Sdu-3c-LKa"/>
-                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="centerX" secondItem="TPf-Fr-Qy0" secondAttribute="centerX" id="YrD-6F-6JN"/>
-                            <constraint firstItem="tif-6G-yjj" firstAttribute="top" secondItem="wJ8-dF-eoh" secondAttribute="bottom" constant="23" id="d5h-pX-1jX"/>
-                            <constraint firstItem="tif-6G-yjj" firstAttribute="centerX" secondItem="TPf-Fr-Qy0" secondAttribute="centerX" id="rIn-JO-HCd"/>
+                            <constraint firstItem="tif-6G-yjj" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="EdW-dB-Jsv"/>
+                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="top" secondItem="Rvr-bt-EgV" secondAttribute="bottom" constant="17" id="MJp-iD-QYu"/>
+                            <constraint firstItem="GOH-Ba-tFi" firstAttribute="top" secondItem="nNb-ce-Gqz" secondAttribute="bottom" constant="8" id="PVi-y6-i2A"/>
+                            <constraint firstItem="TPf-Fr-Qy0" firstAttribute="top" secondItem="tif-6G-yjj" secondAttribute="bottom" constant="16" id="Sdu-3c-LKa"/>
+                            <constraint firstItem="tif-6G-yjj" firstAttribute="top" secondItem="wJ8-dF-eoh" secondAttribute="bottom" constant="16" id="d5h-pX-1jX"/>
+                            <constraint firstItem="GOH-Ba-tFi" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" constant="-1" id="eVk-Ln-pza"/>
+                            <constraint firstItem="TPf-Fr-Qy0" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="gS2-Or-f6b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GOH-Ba-tFi" secondAttribute="trailing" id="uwB-xu-aEM"/>
+                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="yge-7O-zTn"/>
                         </constraints>
                     </view>
                     <connections>
