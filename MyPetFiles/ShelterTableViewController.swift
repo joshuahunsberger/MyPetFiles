@@ -68,4 +68,13 @@ class ShelterTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let shelter = shelters[indexPath.row]
+        
+        let detailVC = storyboard?.instantiateViewControllerWithIdentifier("ShelterDetailViewController") as! ShelterDetailViewController
+        detailVC.shelter = shelter
+        
+        navigationController!.pushViewController(detailVC, animated: true)
+    }
 }
