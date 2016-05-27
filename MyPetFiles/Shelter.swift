@@ -29,4 +29,8 @@ class Shelter {
         let zipArray = dictionary[PetfinderClient.JSONResponseKeys.Zip] as! [String: AnyObject]
         zip = zipArray[PetfinderClient.JSONResponseKeys.Tag] as! String
     }
+    
+    func getAddress() -> String {
+        return "\(city), \(state) \(zip)"
+    }
 }
