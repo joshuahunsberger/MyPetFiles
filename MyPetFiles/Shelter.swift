@@ -16,7 +16,7 @@ class Shelter {
     let zip: String!
     
     init(dictionary: [String: AnyObject]) {
-        let idArray = dictionary[PetfinderClient.JSONResponseKeys.Zip] as! [String: AnyObject]
+        let idArray = dictionary[PetfinderClient.JSONResponseKeys.ID] as! [String: AnyObject]
         id = idArray[PetfinderClient.JSONResponseKeys.Tag] as! String
         
         let nameArray = dictionary[PetfinderClient.JSONResponseKeys.Name] as! [String: AnyObject]
