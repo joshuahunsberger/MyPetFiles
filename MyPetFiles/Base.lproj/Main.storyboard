@@ -277,7 +277,7 @@
                                     <action selector="shelterPageButtonPressed:" destination="Xed-0l-yC6" eventType="touchUpInside" id="eHu-RC-GxU"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvr-bt-EgV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvr-bt-EgV">
                                 <rect key="frame" x="269" y="142" width="63" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="4O7-j0-cGy"/>
