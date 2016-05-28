@@ -64,7 +64,7 @@ class ShelterTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ShelterCell")!
         cell.textLabel!.text = shelter.name
-        cell.detailTextLabel!.text = shelter.getAddress()
+        cell.detailTextLabel!.text = shelter.getShortAddress()
         
         return cell
     }

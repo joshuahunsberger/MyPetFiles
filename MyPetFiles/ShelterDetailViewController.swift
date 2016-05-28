@@ -23,7 +23,7 @@ class ShelterDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         shelterNameLabel.text = shelter.name
-        addressLabel.text = shelter.getAddress()
+        addressLabel.text = "Address\n\(shelter.getLongAddress())"
     }
     
     

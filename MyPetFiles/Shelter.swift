@@ -46,7 +46,15 @@ class Shelter {
         zip = zipArray[PetfinderClient.JSONResponseKeys.Tag] as! String
     }
     
-    func getAddress() -> String {
+    func getShortAddress() -> String {
         return "\(city), \(state) \(zip)"
+    }
+    
+    func getLongAddress() -> String {
+        if (address1.isEmpty) {
+            return getShortAddress()
+        } else {
+            return "\(address1)\n\(getShortAddress())"
+        }
     }
 }
