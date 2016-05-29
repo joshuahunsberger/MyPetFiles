@@ -337,4 +337,20 @@ extension PetfinderClient {
             completionHandlerForGetBreeds(results: breedArray, error: nil)
         }
     }
+    
+    
+    /**
+     Function to retrieve the Petfinder shelter URL for a given shelter ID
+     
+     - Parameters:
+        - id: The ID of the shelter whose page you are requesting.
+     */
+    func getShelterURL(id: String) -> NSURL {
+        let components = NSURLComponents()
+        components.scheme = PetfinderClient.Constants.APIScheme
+        components.host = PetfinderClient.Constants.APIHost
+        components.path = PetfinderClient.Constants.SheltersDirectory + id + PetfinderClient.Constants.ShelterPageExtension
+        
+        return components.URL!
+    }
 }
