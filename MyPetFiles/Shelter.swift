@@ -7,6 +7,7 @@
 //
 
 class Shelter {
+    // MARK: Properties
     let id: String!
     let name: String!
     let address1: String!
@@ -14,6 +15,9 @@ class Shelter {
     let city: String!
     let state: String!
     let zip: String!
+    
+    
+    // MARK: Initialization method
     
     init(dictionary: [String: AnyObject]) {
         let idArray = dictionary[PetfinderClient.JSONResponseKeys.ID] as! [String: AnyObject]
@@ -45,6 +49,9 @@ class Shelter {
         let zipArray = dictionary[PetfinderClient.JSONResponseKeys.Zip] as! [String: AnyObject]
         zip = zipArray[PetfinderClient.JSONResponseKeys.Tag] as! String
     }
+    
+    
+    // MARK: Helper functions
     
     func getShortAddress() -> String {
         return "\(city), \(state) \(zip)"
