@@ -348,7 +348,7 @@ extension PetfinderClient {
     func getShelterURL(id: String) -> NSURL {
         let components = NSURLComponents()
         components.scheme = PetfinderClient.Constants.APIScheme
-        components.host = PetfinderClient.Constants.APIHost
+        components.host = PetfinderClient.Constants.WWWHost
         components.path = PetfinderClient.Constants.SheltersDirectory + id + PetfinderClient.Constants.ShelterPageExtension
         
         return components.URL!

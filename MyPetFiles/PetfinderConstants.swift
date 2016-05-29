@@ -22,6 +22,7 @@ extension PetfinderClient {
     struct Constants {
         static let APIScheme = "https"
         static let APIHost = "api.petfinder.com"
+        static let WWWHost = "www.petfinder.com"
         static let SheltersDirectory = "/shelters/"
         static let ShelterPageExtension = ".html"
     }
