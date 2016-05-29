@@ -30,8 +30,16 @@ class ShelterDetailViewController: UIViewController {
     // MARK: Interface Builder Action Functions
     
     @IBAction func shelterPageButtonPressed(sender: UIButton) {
-        // TODO: Create Petfinder page URL
-        // TODO: Open Petfinder URL in Safari
+        // Create Petfinder page URL
+        let url = PetfinderClient.sharedInstance.getShelterURL(shelter.id)
+        
+        // Open Petfinder URL in Safari
+        let app = UIApplication.sharedApplication()
+        if (app.canOpenURL(url)) {
+            app.openURL(url)
+        } else {
+            print("There was an error opening the Petfinder page.")
+        }
     }
     
 }
