@@ -15,7 +15,8 @@ class Shelter {
     let city: String!
     let state: String!
     let zip: String!
-    
+    let email: String!
+    let phone: String!
     
     // MARK: Initialization method
     
@@ -48,6 +49,20 @@ class Shelter {
         
         let zipArray = dictionary[PetfinderClient.JSONResponseKeys.Zip] as! [String: AnyObject]
         zip = zipArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let emailArray = dictionary[PetfinderClient.JSONResponseKeys.Email] as! [String: AnyObject]
+        if let em = emailArray[PetfinderClient.JSONResponseKeys.Tag] as? String {
+            email = em
+        } else {
+            email = ""
+        }
+        
+        let phoneArray = dictionary[PetfinderClient.JSONResponseKeys.Phone] as! [String: AnyObject]
+        if let ph = phoneArray[PetfinderClient.JSONResponseKeys.Tag] as? String {
+            phone = ph
+        } else {
+            phone = ""
+        }
     }
     
     
@@ -62,6 +77,18 @@ class Shelter {
             return getShortAddress()
         } else {
             return "\(address1)\n\(getShortAddress())"
+        }
+    }
+    
+    func getContactInformation() -> String {
+        if (phone.isEmpty && email.isEmpty) {
+            return "No contact information available."
+        } else if (phone.isEmpty) {
+            return "Email: \(email)"
+        } else if (email.isEmpty) {
+            return "Phone: \(phone)"
+        } else {
+            return "Email: \(email)\nPhone: \(phone)"
         }
     }
 }
