@@ -13,6 +13,8 @@ class ShelterTableViewController: UITableViewController {
     var location: String!
     var groupName: String?
     var shelters = [Shelter]()
+    var emptyMessageLabel: UILabel!
+    
     
     // MARK: View Lifecycle Functions 
     
@@ -50,12 +52,31 @@ class ShelterTableViewController: UITableViewController {
         } else {
             // Search parameters were not set
         }
+        
+        addEmptyMessageLabel()
+    }
+    
+    
+    // MARK: UI setup functions
+    
+    func addEmptyMessageLabel() {
+        emptyMessageLabel = UILabel(frame: CGRectMake(0,0,tableView.bounds.size.width,tableView.bounds.size.height))
+        emptyMessageLabel.text = "No shelters found."
+        emptyMessageLabel.textAlignment = NSTextAlignment.Center
+        emptyMessageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        emptyMessageLabel.sizeToFit()
+        tableView.backgroundView = emptyMessageLabel
     }
     
     
     // MARK: Table View Functions
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (shelters.count == 0) {
+            emptyMessageLabel.hidden = false
+        } else {
+            emptyMessageLabel.hidden = true
+        }
         return shelters.count
     }
     
