@@ -253,32 +253,38 @@
                                     <constraint firstAttribute="height" constant="90" id="V3V-V9-Xzt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPf-Fr-Qy0">
-                                <rect key="frame" x="231" y="331" width="138" height="30"/>
-                                <state key="normal" title="View Pets at Shelter"/>
+                                <rect key="frame" x="20" y="351" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="View Pets at Shelter">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-dF-eoh">
-                                <rect key="frame" x="269" y="224" width="61" height="45"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-dF-eoh">
+                                <rect key="frame" x="20" y="224" width="560" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="EBa-he-q05"/>
+                                    <constraint firstAttribute="height" constant="65" id="EBa-he-q05"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tif-6G-yjj">
-                                <rect key="frame" x="232" y="285" width="135" height="30"/>
-                                <state key="normal" title="Visit Petfinder Page"/>
+                                <rect key="frame" x="20" y="305" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Visit Petfinder Page">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="shelterPageButtonPressed:" destination="Xed-0l-yC6" eventType="touchUpInside" id="eHu-RC-GxU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rvr-bt-EgV">
-                                <rect key="frame" x="269" y="142" width="63" height="65"/>
+                                <rect key="frame" x="20" y="142" width="560" height="65"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="4O7-j0-cGy"/>
                                 </constraints>
@@ -291,17 +297,29 @@
                         <constraints>
                             <constraint firstItem="Rvr-bt-EgV" firstAttribute="top" secondItem="GOH-Ba-tFi" secondAttribute="bottom" constant="24" id="3wz-cJ-yqa"/>
                             <constraint firstItem="tif-6G-yjj" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="8wX-GL-9Ej"/>
-                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="BKl-MU-hrl"/>
                             <constraint firstItem="tif-6G-yjj" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="EdW-dB-Jsv"/>
                             <constraint firstItem="wJ8-dF-eoh" firstAttribute="top" secondItem="Rvr-bt-EgV" secondAttribute="bottom" constant="17" id="MJp-iD-QYu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tif-6G-yjj" secondAttribute="trailing" id="Nqn-hu-1s7"/>
                             <constraint firstItem="GOH-Ba-tFi" firstAttribute="top" secondItem="nNb-ce-Gqz" secondAttribute="bottom" constant="8" id="PVi-y6-i2A"/>
+                            <constraint firstItem="TPf-Fr-Qy0" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" id="RA5-Lo-Qua"/>
                             <constraint firstItem="TPf-Fr-Qy0" firstAttribute="top" secondItem="tif-6G-yjj" secondAttribute="bottom" constant="16" id="Sdu-3c-LKa"/>
                             <constraint firstItem="tif-6G-yjj" firstAttribute="top" secondItem="wJ8-dF-eoh" secondAttribute="bottom" constant="16" id="d5h-pX-1jX"/>
                             <constraint firstItem="GOH-Ba-tFi" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" constant="-1" id="eVk-Ln-pza"/>
                             <constraint firstItem="TPf-Fr-Qy0" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="gS2-Or-f6b"/>
+                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" id="lTd-WH-WyE"/>
+                            <constraint firstItem="tif-6G-yjj" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" id="lqh-CN-p4J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TPf-Fr-Qy0" secondAttribute="trailing" id="nuD-GC-ESw"/>
+                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="trailing" secondItem="UiK-oF-Ne2" secondAttribute="trailingMargin" id="qUh-oO-BmR"/>
+                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="leading" secondItem="UiK-oF-Ne2" secondAttribute="leadingMargin" id="qpl-oj-OKc"/>
+                            <constraint firstItem="Rvr-bt-EgV" firstAttribute="trailing" secondItem="UiK-oF-Ne2" secondAttribute="trailingMargin" id="uFM-d7-ncx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="GOH-Ba-tFi" secondAttribute="trailing" id="uwB-xu-aEM"/>
-                            <constraint firstItem="wJ8-dF-eoh" firstAttribute="centerX" secondItem="UiK-oF-Ne2" secondAttribute="centerX" id="yge-7O-zTn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8wX-GL-9Ej"/>
+                                <exclude reference="gS2-Or-f6b"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="Rvr-bt-EgV" id="vO3-To-UNg"/>
