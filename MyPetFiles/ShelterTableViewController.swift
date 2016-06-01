@@ -32,9 +32,15 @@ class ShelterTableViewController: UITableViewController {
             
             PetfinderClient.sharedInstance.searchShelters(parameters) { (results, error) in
                 if (error != nil) {
-                    // Display error
-                    // TODO: Display alert view for error
-                    print("\(error!.localizedDescription)")
+                    // Display error in alert view
+                    let errorTitle = "Error"
+                    let message = error!.localizedDescription
+                    let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .Alert)
+                    let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+                    alert.addAction(dismissAction)
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.presentViewController(alert, animated: false, completion: nil)
+                    }
                 } else {
                     let sheltersJSON = results as! [[String: AnyObject]]
                     
