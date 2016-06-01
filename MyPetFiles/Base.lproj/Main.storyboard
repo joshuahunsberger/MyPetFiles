@@ -165,6 +165,12 @@
                                     <action selector="searchButtonPressed:" destination="oUy-zM-iIF" eventType="touchUpInside" id="wL4-9s-Ii7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by Petfinder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJX-Es-pFu">
+                                <rect key="frame" x="218" y="142" width="164" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -172,7 +178,9 @@
                             <constraint firstItem="xq5-ph-hfA" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="6rt-d6-9l2"/>
                             <constraint firstItem="9c7-gw-f7U" firstAttribute="top" secondItem="xq5-ph-hfA" secondAttribute="bottom" constant="21" id="AQB-Fz-g9E"/>
                             <constraint firstItem="sPv-wk-iIT" firstAttribute="top" secondItem="Xoc-GO-Yh2" secondAttribute="bottom" constant="37" id="GIj-je-9ri"/>
+                            <constraint firstItem="VJX-Es-pFu" firstAttribute="top" secondItem="sPv-wk-iIT" secondAttribute="bottom" constant="8" id="MiA-Zq-ure"/>
                             <constraint firstItem="RCV-vr-dVU" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="PF1-qz-Yn6"/>
+                            <constraint firstItem="VJX-Es-pFu" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="QuW-8L-lgq"/>
                             <constraint firstItem="xq5-ph-hfA" firstAttribute="leading" secondItem="Ewd-Na-z98" secondAttribute="leadingMargin" id="SEJ-SS-iuy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xq5-ph-hfA" secondAttribute="trailing" id="UJB-a3-S8E"/>
                             <constraint firstItem="sPv-wk-iIT" firstAttribute="centerX" secondItem="Ewd-Na-z98" secondAttribute="centerX" id="V0R-3w-o8M"/>
