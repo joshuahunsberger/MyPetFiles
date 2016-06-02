@@ -241,7 +241,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ARC-3u-ttQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2192" y="487"/>
+            <point key="canvasLocation" x="2318" y="590"/>
+        </scene>
+        <!--Pet Search Results-->
+        <scene sceneID="Csh-1G-fvf">
+            <objects>
+                <tableViewController storyboardIdentifier="PetTableViewController" title="Pet Search Results" id="smc-r5-J8W" customClass="PetTableViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4YO-hN-gW3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="N6Z-aO-VR2">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N6Z-aO-VR2" id="524-vl-YVv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="smc-r5-J8W" id="1yd-at-Rvp"/>
+                            <outlet property="delegate" destination="smc-r5-J8W" id="zIF-Qd-9qo"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUh-I8-kxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2201" y="1166"/>
         </scene>
         <!--Shelter Detail View Controller-->
         <scene sceneID="FM3-Vb-f6C">
