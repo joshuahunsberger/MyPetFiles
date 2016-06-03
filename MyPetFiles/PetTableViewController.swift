@@ -12,6 +12,7 @@ class PetTableViewController: UITableViewController {
     // MARK: Properties
     var shelter: Shelter?
     var pets = [Pet]()
+    var emptyMessageLabel: UILabel!
     
     
     // MARK: View Lifecycle Functions
@@ -22,6 +23,8 @@ class PetTableViewController: UITableViewController {
         if let shelter = shelter {
             getPets(shelter.id)
         }
+        
+        addEmptyMessageLabel()
     }
     
     
@@ -56,10 +59,24 @@ class PetTableViewController: UITableViewController {
         }
     }
     
+    func addEmptyMessageLabel() {
+        emptyMessageLabel = UILabel(frame: CGRectMake(0,0,tableView.bounds.size.width,tableView.bounds.size.height))
+        emptyMessageLabel.text = "No pets found."
+        emptyMessageLabel.textAlignment = NSTextAlignment.Center
+        emptyMessageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        emptyMessageLabel.sizeToFit()
+        tableView.backgroundView = emptyMessageLabel
+    }
+    
     
     // MARK: Table View Functions
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(pets.count == 0) {
+            emptyMessageLabel.hidden = false
+        } else {
+            emptyMessageLabel.hidden = true
+        }
         return pets.count
     }
 }
