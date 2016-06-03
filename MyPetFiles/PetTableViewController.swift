@@ -32,7 +32,15 @@ class PetTableViewController: UITableViewController {
         
         PetfinderClient.sharedInstance.getShelterPets(parameters) { (results, error) in
             if (error != nil) {
-                // Handle error
+                // Display error in alert view
+                let errorTitle = "Error"
+                let message = error!.localizedDescription
+                let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .Alert)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+                alert.addAction(dismissAction)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.presentViewController(alert, animated: false, completion: nil)
+                }
             } else {
                 let petsJSON = results as! [[String: AnyObject]]
                 
