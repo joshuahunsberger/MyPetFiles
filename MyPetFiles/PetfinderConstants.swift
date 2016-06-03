@@ -96,6 +96,12 @@ extension PetfinderClient {
         static let Address1 = "address1"
         static let Address2 = "address2"
         
+        static let Animal = "animal"
+        static let Sex = "sex"
+        static let Description = "description"
+        static let Age = "age"
+        static let Size = "size"
+        
         static let Tag = "$t"
     }
     

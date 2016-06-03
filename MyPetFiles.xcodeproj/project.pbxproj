@@ -13,6 +13,7 @@
 		4277A2C41CF67ED80079A2C0 /* Shelter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C31CF67ED80079A2C0 /* Shelter.swift */; };
 		4277A2C61CF7D3D90079A2C0 /* ShelterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */; };
 		4277A2C81CFFD6B30079A2C0 /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */; };
+		4277A2CA1D01268A0079A2C0 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C91D01268A0079A2C0 /* Pet.swift */; };
 		42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64891CE94FF80022B4F6 /* AppDelegate.swift */; };
 		42FE648F1CE94FF80022B4F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FE648D1CE94FF80022B4F6 /* Main.storyboard */; };
 		42FE64921CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64901CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld */; };
@@ -30,6 +31,7 @@
 		4277A2C31CF67ED80079A2C0 /* Shelter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shelter.swift; sourceTree = "<group>"; };
 		4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelterDetailViewController.swift; sourceTree = "<group>"; };
 		4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
+		4277A2C91D01268A0079A2C0 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		42FE64861CE94FF80022B4F6 /* MyPetFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPetFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FE64891CE94FF80022B4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42FE648E1CE94FF80022B4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		42FE649E1CE958C50022B4F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4277A2C91D01268A0079A2C0 /* Pet.swift */,
 				4277A2C31CF67ED80079A2C0 /* Shelter.swift */,
 				42FE649F1CE958CE0022B4F6 /* Clients */,
 			);
@@ -213,6 +216,7 @@
 				4277A2C61CF7D3D90079A2C0 /* ShelterDetailViewController.swift in Sources */,
 				4277A2C01CF140390079A2C0 /* ShelterSearchViewController.swift in Sources */,
 				4277A2C41CF67ED80079A2C0 /* Shelter.swift in Sources */,
+				4277A2CA1D01268A0079A2C0 /* Pet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
