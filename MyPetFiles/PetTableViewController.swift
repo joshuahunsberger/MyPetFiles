@@ -79,4 +79,14 @@ class PetTableViewController: UITableViewController {
         }
         return pets.count
     }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let pet = pets[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("PetCell")!
+        cell.textLabel!.text = pet.name
+        cell.detailTextLabel!.text = pet.animal + " - " + pet.breed
+        
+        return cell
+    }
 }
