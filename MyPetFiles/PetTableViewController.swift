@@ -55,4 +55,11 @@ class PetTableViewController: UITableViewController {
             }
         }
     }
+    
+    
+    // MARK: Table View Functions
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return pets.count
+    }
 }
