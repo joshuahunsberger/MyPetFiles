@@ -106,10 +106,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Shelter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-wk-iIT">
-                                <rect key="frame" x="186" y="101" width="229" height="33"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Shelter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-wk-iIT">
+                                <rect key="frame" x="20" y="101" width="560" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="229" id="AD2-tI-ti8"/>
+                                    <constraint firstAttribute="width" constant="560" id="AD2-tI-ti8"/>
                                     <constraint firstAttribute="height" constant="33" id="lzd-xO-Vje"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
