@@ -89,4 +89,13 @@ class PetTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let pet = pets[indexPath.row]
+        
+        let detailVC = storyboard?.instantiateViewControllerWithIdentifier("PetDetailViewController") as! PetDetailViewController
+        detailVC.pet = pet
+        
+        navigationController!.pushViewController(detailVC, animated: true)
+    }
 }
