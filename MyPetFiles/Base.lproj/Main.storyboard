@@ -315,6 +315,9 @@
                                 <state key="normal" title="View Pets at Shelter">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewPetsButtonPressed:" destination="Xed-0l-yC6" eventType="touchUpInside" id="1Rp-V7-Wqp"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ8-dF-eoh">
                                 <rect key="frame" x="20" y="224" width="560" height="65"/>

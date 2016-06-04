@@ -43,4 +43,10 @@ class ShelterDetailViewController: UIViewController {
         }
     }
     
+    @IBAction func viewPetsButtonPressed(sender: UIButton) {
+        let petVC = storyboard?.instantiateViewControllerWithIdentifier("PetTableViewController") as! PetTableViewController
+        petVC.shelter = shelter
+        
+        navigationController!.pushViewController(petVC, animated: true)
+    }
 }
