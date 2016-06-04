@@ -22,6 +22,7 @@ class ShelterDetailViewController: UIViewController {
     // MARK: View Lifecycle Functions
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         shelterNameLabel.text = shelter.name
         addressLabel.text = "Address:\n\(shelter.getLongAddress())"
         contactLabel.text = "Contact:\n\(shelter.getContactInformation())"
