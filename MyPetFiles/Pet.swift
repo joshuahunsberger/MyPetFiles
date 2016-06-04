@@ -9,7 +9,7 @@
 class Pet {
     var id: String
     var animal: String
-    var breed: String
+    var breed: [String]
     var name: String
     var sex: String
     var age: String
@@ -18,17 +18,41 @@ class Pet {
     
     
     init(dictionary: [String: AnyObject]) {
-        id = dictionary[PetfinderClient.JSONResponseKeys.ID] as! String
-        animal = dictionary[PetfinderClient.JSONResponseKeys.Animal] as! String
-        breed = dictionary[PetfinderClient.JSONResponseKeys.Breed] as! String
-        name = dictionary[PetfinderClient.JSONResponseKeys.Name] as! String
-        sex = dictionary[PetfinderClient.JSONResponseKeys.Sex] as! String
-        if let desc = dictionary[PetfinderClient.JSONResponseKeys.Description] as? String {
+        let idArray = dictionary[PetfinderClient.JSONResponseKeys.ID] as! [String: AnyObject]
+        id = idArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let animalArray = dictionary[PetfinderClient.JSONResponseKeys.Animal] as! [String: AnyObject]
+        animal = animalArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        breed = [String]()
+        let breeds = dictionary[PetfinderClient.JSONResponseKeys.Breeds] as! [String: AnyObject]
+        if let breedsArray = breeds[PetfinderClient.JSONResponseKeys.Breed] as? [[String: AnyObject]] {
+            for breedArray in breedsArray {
+                let b = breedArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+                breed.append(b)
+            }
+        } else if let breedArray = breeds[PetfinderClient.JSONResponseKeys.Breed] as? [String: AnyObject] {
+            let b = breedArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+            breed.append(b)
+        }
+        
+        let nameArray = dictionary[PetfinderClient.JSONResponseKeys.Name] as! [String: AnyObject]
+        name = nameArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let sexArray = dictionary[PetfinderClient.JSONResponseKeys.Sex] as! [String: AnyObject]
+        sex = sexArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let descArray = dictionary[PetfinderClient.JSONResponseKeys.Description] as! [String: AnyObject]
+        if let desc = descArray[PetfinderClient.JSONResponseKeys.Tag] as? String {
             description = desc
         } else {
             description = ""
         }
-        age = dictionary[PetfinderClient.JSONResponseKeys.Age] as! String
-        size = dictionary[PetfinderClient.JSONResponseKeys.Size] as! String
+        
+        let ageArray = dictionary[PetfinderClient.JSONResponseKeys.Age] as! [String: AnyObject]
+        age =  ageArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let sizeArray = dictionary[PetfinderClient.JSONResponseKeys.Size] as! [String: AnyObject]
+        size = sizeArray[PetfinderClient.JSONResponseKeys.Tag] as! String
     }
 }
