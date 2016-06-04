@@ -386,6 +386,51 @@
             </objects>
             <point key="canvasLocation" x="2900" y="487"/>
         </scene>
+        <!--Pet Detail View Controller-->
+        <scene sceneID="dpm-Ff-SEd">
+            <objects>
+                <viewController storyboardIdentifier="PetDetailViewController" id="Qg1-Wt-7iB" customClass="PetDetailViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Krq-0Y-Vxz"/>
+                        <viewControllerLayoutGuide type="bottom" id="lbT-uJ-ed8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UQj-Ek-ywA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te2-ym-8kM">
+                                <rect key="frame" x="20" y="58" width="560" height="33"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-n7-Z47">
+                                <rect key="frame" x="0.0" y="99" width="600" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="bMy-tb-UUg"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6Or-n7-Z47" firstAttribute="top" secondItem="te2-ym-8kM" secondAttribute="bottom" constant="8" symbolic="YES" id="9oF-Og-cBq"/>
+                            <constraint firstItem="te2-ym-8kM" firstAttribute="centerX" secondItem="6Or-n7-Z47" secondAttribute="centerX" id="9pO-HW-wuG"/>
+                            <constraint firstItem="6Or-n7-Z47" firstAttribute="leading" secondItem="UQj-Ek-ywA" secondAttribute="leading" id="AxT-6e-68D"/>
+                            <constraint firstItem="te2-ym-8kM" firstAttribute="trailing" secondItem="UQj-Ek-ywA" secondAttribute="trailingMargin" id="BVb-eV-t2j"/>
+                            <constraint firstAttribute="trailing" secondItem="6Or-n7-Z47" secondAttribute="trailing" id="Mp3-Y4-Omm"/>
+                            <constraint firstItem="te2-ym-8kM" firstAttribute="top" secondItem="Krq-0Y-Vxz" secondAttribute="bottom" constant="38" id="bg8-Ip-UbC"/>
+                            <constraint firstItem="te2-ym-8kM" firstAttribute="leading" secondItem="UQj-Ek-ywA" secondAttribute="leadingMargin" id="g7L-VS-Vb6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="petNameLabel" destination="te2-ym-8kM" id="E8A-2m-3Bc"/>
+                        <outlet property="photoScrollView" destination="6Or-n7-Z47" id="3zf-pH-o7d"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iqJ-f7-iyl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2900" y="1166"/>
+        </scene>
     </scenes>
     <resources>
         <image name="dr_mj_small.png" width="512" height="512"/>

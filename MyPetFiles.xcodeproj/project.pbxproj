@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420856901D037AA300B0F873 /* PetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4208568F1D037AA300B0F873 /* PetDetailViewController.swift */; };
 		4277A2BC1CF115C30079A2C0 /* dr_mj_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */; };
 		4277A2C01CF140390079A2C0 /* ShelterSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2BF1CF140390079A2C0 /* ShelterSearchViewController.swift */; };
 		4277A2C21CF29A1C0079A2C0 /* ShelterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C11CF29A1C0079A2C0 /* ShelterTableViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4208568F1D037AA300B0F873 /* PetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetDetailViewController.swift; sourceTree = "<group>"; };
 		4277A2BB1CF115C30079A2C0 /* dr_mj_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dr_mj_small.png; sourceTree = "<group>"; };
 		4277A2BF1CF140390079A2C0 /* ShelterSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelterSearchViewController.swift; sourceTree = "<group>"; };
 		4277A2C11CF29A1C0079A2C0 /* ShelterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelterTableViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				4277A2C11CF29A1C0079A2C0 /* ShelterTableViewController.swift */,
 				4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */,
 				4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */,
+				4208568F1D037AA300B0F873 /* PetDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				42FE64A31CE95B4E0022B4F6 /* PetfinderClient.swift in Sources */,
 				42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */,
 				42FE64921CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld in Sources */,
+				420856901D037AA300B0F873 /* PetDetailViewController.swift in Sources */,
 				4277A2C81CFFD6B30079A2C0 /* PetTableViewController.swift in Sources */,
 				4277A2C21CF29A1C0079A2C0 /* ShelterTableViewController.swift in Sources */,
 				42FE64A51CE95F470022B4F6 /* PetfinderConstants.swift in Sources */,
