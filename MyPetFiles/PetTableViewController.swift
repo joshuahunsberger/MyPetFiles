@@ -85,7 +85,7 @@ class PetTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("PetCell")!
         cell.textLabel!.text = pet.name
-        cell.detailTextLabel!.text = pet.animal + " - " + pet.breed
+        cell.detailTextLabel!.text = pet.animal + " - " + pet.getBreed()
         
         return cell
     }

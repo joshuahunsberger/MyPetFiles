@@ -55,4 +55,20 @@ class Pet {
         let sizeArray = dictionary[PetfinderClient.JSONResponseKeys.Size] as! [String: AnyObject]
         size = sizeArray[PetfinderClient.JSONResponseKeys.Tag] as! String
     }
+    
+    
+    // MARK: Helper functions
+    
+    func getBreed() -> String {
+        var returnString = ""
+        
+        if breed.count > 0 {
+            returnString = breed.joinWithSeparator(" & ")
+            returnString = returnString + " Mix"
+        } else {
+            returnString = "Breed Unknown"
+        }
+        
+        return returnString
+    }
 }
