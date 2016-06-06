@@ -101,6 +101,12 @@ extension PetfinderClient {
         static let Description = "description"
         static let Age = "age"
         static let Size = "size"
+        static let Media = "media"
+        static let Photos = "photos"
+        static let Photo = "photo"
+        
+        static let PhotoSize = "@size"
+        static let PhotoID = "@id"
         
         static let Tag = "$t"
     }
@@ -110,5 +116,8 @@ extension PetfinderClient {
     
     struct JSONResponseValues {
         static let SuccessStatus = 100
+        static let LargePhotoSize = "x"
+        static let ThumbnailPhotoSize = "t"
+        static let PetnotePhotoSize = "pn"
     }
 }
