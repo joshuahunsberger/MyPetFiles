@@ -30,6 +30,15 @@ class ShelterTableViewController: UITableViewController {
                 parameters[PetfinderClient.ParameterKeys.Name] = name
             }
             
+            // Display activity indicator while loading
+            let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
+            activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+            view.addSubview(activityIndicator)
+            activityIndicator.frame = view.frame
+            activityIndicator.center = view.center
+            activityIndicator.layer.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.75).CGColor
+            activityIndicator.startAnimating()
+            
             PetfinderClient.sharedInstance.searchShelters(parameters) { (results, error) in
                 if (error != nil) {
                     // Display error in alert view
@@ -39,6 +48,8 @@ class ShelterTableViewController: UITableViewController {
                     let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
                     alert.addAction(dismissAction)
                     dispatch_async(dispatch_get_main_queue()) {
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
                         self.presentViewController(alert, animated: false, completion: nil)
                     }
                 } else {
@@ -51,6 +62,8 @@ class ShelterTableViewController: UITableViewController {
                     
                     // Update the table on the main thread
                     dispatch_async(dispatch_get_main_queue()) {
+                        activityIndicator.stopAnimating()
+                        activityIndicator.removeFromSuperview()
                         self.tableView.reloadData()
                     }
                 }
