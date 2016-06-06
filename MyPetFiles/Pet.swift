@@ -15,7 +15,9 @@ class Pet {
     var age: String
     var size: String
     var description: String
-    
+    var largePhotoURLs = [String: AnyObject]()
+    var thumbnailPhotoURLs = [String: AnyObject]()
+    var petnotePhotoURLs = [String: AnyObject]()
     
     init(dictionary: [String: AnyObject]) {
         let idArray = dictionary[PetfinderClient.JSONResponseKeys.ID] as! [String: AnyObject]
@@ -54,6 +56,26 @@ class Pet {
         
         let sizeArray = dictionary[PetfinderClient.JSONResponseKeys.Size] as! [String: AnyObject]
         size = sizeArray[PetfinderClient.JSONResponseKeys.Tag] as! String
+        
+        let mediaDictionary = dictionary[PetfinderClient.JSONResponseKeys.Media] as! [String: AnyObject]
+        let photosDictionary = mediaDictionary[PetfinderClient.JSONResponseKeys.Photos] as! [String: AnyObject]
+        if let photoDictionaryArray = photosDictionary[PetfinderClient.JSONResponseKeys.Photo] as? [[String: AnyObject]] {
+            for photoDictionary in photoDictionaryArray {
+                let photoSize = photoDictionary[PetfinderClient.JSONResponseKeys.PhotoSize] as! String
+                let photoURL = photoDictionary[PetfinderClient.JSONResponseKeys.Tag] as! String
+                let photoID = photoDictionary[PetfinderClient.JSONResponseKeys.PhotoID] as! String
+                
+                switch photoSize {
+                case PetfinderClient.JSONResponseValues.LargePhotoSize:
+                    largePhotoURLs[photoID] = photoURL
+                case PetfinderClient.JSONResponseValues.ThumbnailPhotoSize:
+                    thumbnailPhotoURLs[photoID] = photoURL
+                case PetfinderClient.JSONResponseValues.PetnotePhotoSize:
+                    petnotePhotoURLs[photoID] = photoURL
+                default: break // Ignore other sizes
+                }
+            }
+        }
     }
     
     
