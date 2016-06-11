@@ -404,7 +404,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wgi-eH-D4V" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="653"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te2-ym-8kM">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="te2-ym-8kM">
                                                 <rect key="frame" x="8" y="8" width="584" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="1gC-R7-dRr"/>
