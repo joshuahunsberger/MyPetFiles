@@ -404,12 +404,17 @@
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-n7-Z47">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-n7-Z47">
                                 <rect key="frame" x="0.0" y="99" width="600" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="bMy-tb-UUg"/>
                                 </constraints>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="344-PN-nrk">
+                                <rect key="frame" x="281" y="332" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -420,10 +425,13 @@
                             <constraint firstAttribute="trailing" secondItem="6Or-n7-Z47" secondAttribute="trailing" id="Mp3-Y4-Omm"/>
                             <constraint firstItem="te2-ym-8kM" firstAttribute="top" secondItem="Krq-0Y-Vxz" secondAttribute="bottom" constant="38" id="bg8-Ip-UbC"/>
                             <constraint firstItem="te2-ym-8kM" firstAttribute="leading" secondItem="UQj-Ek-ywA" secondAttribute="leadingMargin" id="g7L-VS-Vb6"/>
+                            <constraint firstItem="344-PN-nrk" firstAttribute="centerX" secondItem="UQj-Ek-ywA" secondAttribute="centerX" id="m3A-Ep-V6H"/>
+                            <constraint firstItem="344-PN-nrk" firstAttribute="top" secondItem="6Or-n7-Z47" secondAttribute="bottom" constant="8" id="oyC-cz-6zv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="petNameLabel" destination="te2-ym-8kM" id="E8A-2m-3Bc"/>
+                        <outlet property="photoPageControl" destination="344-PN-nrk" id="bfe-pa-1Eu"/>
                         <outlet property="photoScrollView" destination="6Or-n7-Z47" id="3zf-pH-o7d"/>
                     </connections>
                 </viewController>

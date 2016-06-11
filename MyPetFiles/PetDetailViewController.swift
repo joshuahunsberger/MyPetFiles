@@ -21,12 +21,16 @@ class PetDetailViewController: UIViewController {
     
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var photoScrollView: UIScrollView!
+    @IBOutlet weak var photoPageControl: UIPageControl!
     
     
     // MARK: View Lifecycle Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoScrollView.delegate = self
+        
         petNameLabel.text = pet.name
         loadPhotos()
     }
@@ -38,6 +42,7 @@ class PetDetailViewController: UIViewController {
         photoScrollView.frame = CGRectMake(0, 0, view.frame.width, SCROLLVIEW_HEIGHT)
         
         let photoCount = pet.largePhotoURLs.count
+        photoPageControl.numberOfPages = photoCount
         photoScrollView.contentSize = CGSizeMake(photoScrollView.frame.width * CGFloat(photoCount), photoScrollView.frame.height)
         photoScrollView.backgroundColor = UIColor.grayColor()
         
@@ -62,9 +67,26 @@ class PetDetailViewController: UIViewController {
                     imageView.image = image
                     imageView.contentMode = .ScaleAspectFit
                     self.photoScrollView.addSubview(imageView)
-                    
                 }
             }
         }
+    }
+}
+
+
+// MARK: ScrollView Delegate functions
+
+extension PetDetailViewController: UIScrollViewDelegate {
+    /** 
+        This function updates the page control whenever the scroll view is paged.
+     
+        Credit to SweetTutos.com for the example of how to use a page control with a scroll view:
+        http://sweettutos.com/2015/04/13/how-to-make-a-horizontal-paging-uiscrollview-with-auto-layout-in-storyboards-swift/
+    */
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        let pageWidth: CGFloat = CGRectGetWidth(scrollView.frame)
+        let currentPage: CGFloat = floor((scrollView.contentOffset.x - pageWidth/2)/pageWidth)+1
+        
+        photoPageControl.currentPage = Int(currentPage)
     }
 }
