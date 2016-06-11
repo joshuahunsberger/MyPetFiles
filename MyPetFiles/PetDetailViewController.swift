@@ -22,6 +22,12 @@ class PetDetailViewController: UIViewController {
     @IBOutlet weak var petNameLabel: UILabel!
     @IBOutlet weak var photoScrollView: UIScrollView!
     @IBOutlet weak var photoPageControl: UIPageControl!
+    @IBOutlet weak var speciesLabel: UILabel!
+    @IBOutlet weak var breedLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     
     // MARK: View Lifecycle Functions
@@ -31,7 +37,7 @@ class PetDetailViewController: UIViewController {
         
         photoScrollView.delegate = self
         
-        petNameLabel.text = pet.name
+        setupPetDetails()
         loadPhotos()
     }
     
@@ -70,6 +76,21 @@ class PetDetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    func setupPetDetails() {
+        petNameLabel.text = pet.name
+        
+        speciesLabel.text = "Species: \(pet.animal)"
+        breedLabel.text = "Breed: \(pet.getBreed())"
+        sizeLabel.text = "Size: \(pet.size)"
+        genderLabel.text = "Gender: \(pet.sex)"
+        ageLabel.text = "Age: \(pet.age)"
+        
+        descriptionTextView.layer.borderColor = UIColor.blackColor().CGColor
+        descriptionTextView.layer.borderWidth = 1.0
+        descriptionTextView.text = pet.description
+        descriptionTextView.scrollRangeToVisible(NSRange(location: 0, length: 0))
     }
 }
 
