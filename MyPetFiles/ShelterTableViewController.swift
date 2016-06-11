@@ -36,7 +36,7 @@ class ShelterTableViewController: UITableViewController {
             view.addSubview(activityIndicator)
             activityIndicator.frame = view.frame
             activityIndicator.center = view.center
-            activityIndicator.layer.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.75).CGColor
+            activityIndicator.layer.backgroundColor = UIColor.grayColor().CGColor
             activityIndicator.startAnimating()
             
             PetfinderClient.sharedInstance.searchShelters(parameters) { (results, error) in
