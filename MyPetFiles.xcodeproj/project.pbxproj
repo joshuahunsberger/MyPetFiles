@@ -15,6 +15,7 @@
 		4277A2C61CF7D3D90079A2C0 /* ShelterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */; };
 		4277A2C81CFFD6B30079A2C0 /* PetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */; };
 		4277A2CA1D01268A0079A2C0 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277A2C91D01268A0079A2C0 /* Pet.swift */; };
+		42DF81D91D0E534F0088FF49 /* PetSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF81D81D0E534F0088FF49 /* PetSearchViewController.swift */; };
 		42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64891CE94FF80022B4F6 /* AppDelegate.swift */; };
 		42FE648F1CE94FF80022B4F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42FE648D1CE94FF80022B4F6 /* Main.storyboard */; };
 		42FE64921CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42FE64901CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld */; };
@@ -34,6 +35,7 @@
 		4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelterDetailViewController.swift; sourceTree = "<group>"; };
 		4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetTableViewController.swift; sourceTree = "<group>"; };
 		4277A2C91D01268A0079A2C0 /* Pet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		42DF81D81D0E534F0088FF49 /* PetSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetSearchViewController.swift; sourceTree = "<group>"; };
 		42FE64861CE94FF80022B4F6 /* MyPetFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPetFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42FE64891CE94FF80022B4F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42FE648E1CE94FF80022B4F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				4277A2C51CF7D3D90079A2C0 /* ShelterDetailViewController.swift */,
 				4277A2C71CFFD6B30079A2C0 /* PetTableViewController.swift */,
 				4208568F1D037AA300B0F873 /* PetDetailViewController.swift */,
+				42DF81D81D0E534F0088FF49 /* PetSearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 			files = (
 				42FE64A31CE95B4E0022B4F6 /* PetfinderClient.swift in Sources */,
 				42FE648A1CE94FF80022B4F6 /* AppDelegate.swift in Sources */,
+				42DF81D91D0E534F0088FF49 /* PetSearchViewController.swift in Sources */,
 				42FE64921CE94FF80022B4F6 /* MyPetFiles.xcdatamodeld in Sources */,
 				420856901D037AA300B0F873 /* PetDetailViewController.swift in Sources */,
 				4277A2C81CFFD6B30079A2C0 /* PetTableViewController.swift in Sources */,

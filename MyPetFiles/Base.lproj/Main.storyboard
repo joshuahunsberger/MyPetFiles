@@ -202,7 +202,7 @@
         <!--Find a Pet-->
         <scene sceneID="chD-Dr-HIw">
             <objects>
-                <viewController title="Find a Pet" id="l7t-Cy-fXm" sceneMemberID="viewController">
+                <viewController title="Find a Pet" id="l7t-Cy-fXm" customClass="PetSearchViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HL9-MR-P2F"/>
                         <viewControllerLayoutGuide type="bottom" id="wCM-VP-pxz"/>
@@ -341,6 +341,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="ageTextField" destination="U23-K1-G7x" id="oJX-ga-XO7"/>
+                        <outlet property="animalTypeTextField" destination="8Ee-hc-UVB" id="Wvy-hj-axH"/>
+                        <outlet property="breedTextField" destination="uEP-26-uzm" id="3MH-Xc-Zpi"/>
+                        <outlet property="genderTextField" destination="7L9-N0-dSW" id="bYI-og-7w7"/>
+                        <outlet property="locationTextField" destination="83K-RK-iPD" id="epg-zw-iHK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDa-NY-nUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
