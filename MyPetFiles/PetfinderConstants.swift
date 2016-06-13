@@ -120,4 +120,22 @@ extension PetfinderClient {
         static let ThumbnailPhotoSize = "t"
         static let PetnotePhotoSize = "pn"
     }
+    
+    
+    // MARK: Petfinder Animal Types
+    
+    static let AnimalTypes = ["barnyard", "bird", "cat", "dog", "horse", "pig", "reptile", "smallfurry"]
+    static let AnimalTypeDisplayNames = ["Barnyard", "Bird", "Cat", "Dog", "horse", "Pig", "Reptile", "Small & Furry"]
+    
+    
+    // MARK: Petfinder Animal Sizes
+    
+    static let AnimalSizes = ["S", "M", "L", "XL"]
+    static let AnimalSizeDisplayNames = ["Small", "Medium", "Large", "Extra-Large"]
+    
+    
+    // MARK: Petfinder Animal Genders
+    
+    static let AnimalGenders = ["M", "F"]
+    static let AnimalGenderDisplayNames = ["Male", "Female"]
 }
