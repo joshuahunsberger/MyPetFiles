@@ -32,5 +32,50 @@ class PetSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupPickerView()
+    }
+    
+    
+    // MARK: UI Setup Functions
+    
+    func setupPickerView() {
+        let frameWidth = view.frame.width
+        let frameHeight = view.frame.height
+        
+        // Define view frames
+        pickerParentView.frame = CGRectMake(0, frameHeight-PICKER_VIEW_HEIGHT, frameWidth, PICKER_VIEW_HEIGHT)
+        pickerToolbar.frame = CGRectMake(0, 0, frameWidth, TOOLBAR_HEIGHT)
+        pickerView.frame = CGRectMake(0, pickerToolbar.frame.maxY, frameWidth, PICKER_VIEW_HEIGHT-TOOLBAR_HEIGHT)
+        
+        // Add buttons to tolbar
+        let doneButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: #selector(PetSearchViewController.doneTapped))
+        let clearButton: UIBarButtonItem = UIBarButtonItem(title: "Clear", style: .Plain, target: self, action: #selector(PetSearchViewController.clearTapped))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        pickerToolbar.items = [clearButton, flexibleSpace, doneButton]
+        
+        // Add picker and toolbar to parent view
+        pickerParentView.addSubview(pickerToolbar)
+        pickerParentView.addSubview(pickerView)
+        
+        // Add parent view to larger view
+        view.addSubview(pickerParentView)
+        
+        // Set initial picker view status to hidden
+        pickerParentView.hidden = true
+    }
+    
+    
+    // MARK: Bar Button Action Functions
+    
+    func doneTapped() {
+        // Hide picker view
+        pickerParentView.hidden = true
+    }
+    
+    func clearTapped() {
+        // Hide picker view
+        pickerParentView.hidden = true
+        // TODO: Clear selected text field
     }
 }
