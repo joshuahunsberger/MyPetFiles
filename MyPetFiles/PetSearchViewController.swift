@@ -68,8 +68,14 @@ class PetSearchViewController: UIViewController {
         // Add parent view to larger view
         view.addSubview(pickerParentView)
         
+        // Set background of picker view
+        pickerParentView.backgroundColor = UIColor.whiteColor()
+        
         // Set initial picker view status to hidden
         pickerParentView.hidden = true
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
     }
     
     
@@ -93,6 +99,7 @@ extension PetSearchViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         selectedTextField = textField
         if (textField == animalTypeTextField || textField == genderTextField) {
+            pickerView.reloadAllComponents()
             pickerParentView.hidden = false
             return false
         } else {
@@ -104,5 +111,63 @@ extension PetSearchViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         selectedTextField = nil
         return true
+    }
+}
+
+extension PetSearchViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        guard let textField = selectedTextField else {
+            return 0
+        }
+        
+        if (textField == animalTypeTextField) {
+            return PetfinderClient.AnimalTypeDisplayNames.count + 1
+        } else if (textField == genderTextField) {
+            return PetfinderClient.AnimalGenderDisplayNames.count + 1
+        } else {
+            print("Undefined textfield for pickerview. Returning 0 rows")
+            return 0
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let textField = selectedTextField else {
+            return ""
+        }
+        
+        if (row == 0) {
+            return "Select an option"
+        } else if (textField == animalTypeTextField) {
+            return PetfinderClient.AnimalTypeDisplayNames[row-1]
+        } else if (textField == genderTextField) {
+            return PetfinderClient.AnimalGenderDisplayNames[row-1]
+        } else {
+            print("Undefined textfield for pickerview. Returning blank text.")
+            return ""
+        }
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard let textField = selectedTextField else {
+            return
+        }
+        
+        if (textField == animalTypeTextField) {
+            if (row == 0) {
+                animalTypeTextField.text = ""
+            } else {
+                animalTypeTextField.text = PetfinderClient.AnimalTypeDisplayNames[row-1]
+            }
+        } else if (textField == genderTextField) {
+            if (row == 0) {
+                genderTextField.text = ""
+            } else {
+                genderTextField.text = PetfinderClient.AnimalGenderDisplayNames[row-1]
+            }
+        }
     }
 }
