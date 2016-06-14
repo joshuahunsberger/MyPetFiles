@@ -18,7 +18,8 @@ class PetSearchViewController: UIViewController {
     let pickerParentView: UIView = UIView()
     let pickerView: UIPickerView = UIPickerView()
     let pickerToolbar: UIToolbar = UIToolbar()
-    
+    // TODO: Track currently selected text field
+    var selectedTextField: UITextField?
     
     // MARK: Interface Builder Outlet Properties
     @IBOutlet weak var locationTextField: UITextField!
@@ -32,6 +33,12 @@ class PetSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationTextField.delegate = self
+        animalTypeTextField.delegate = self
+        breedTextField.delegate = self
+        ageTextField.delegate = self
+        genderTextField.delegate = self
         
         setupPickerView()
     }
@@ -71,11 +78,31 @@ class PetSearchViewController: UIViewController {
     func doneTapped() {
         // Hide picker view
         pickerParentView.hidden = true
+        selectedTextField = nil
     }
     
     func clearTapped() {
         // Hide picker view
         pickerParentView.hidden = true
         // TODO: Clear selected text field
+        selectedTextField = nil
+    }
+}
+
+extension PetSearchViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        selectedTextField = textField
+        if (textField == animalTypeTextField || textField == genderTextField) {
+            pickerParentView.hidden = false
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        selectedTextField = nil
+        return true
     }
 }
