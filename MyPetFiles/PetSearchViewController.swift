@@ -27,6 +27,7 @@ class PetSearchViewController: UIViewController {
     @IBOutlet weak var breedTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
     @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     
     // MARK: View Lifecycle Functions
@@ -41,6 +42,14 @@ class PetSearchViewController: UIViewController {
         genderTextField.delegate = self
         
         setupPickerView()
+        
+        subscribeToKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -78,6 +87,42 @@ class PetSearchViewController: UIViewController {
         pickerView.dataSource = self
     }
     
+    func subscribeToKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWasShown), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWillBeHidden), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unsubscribeFromKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        guard let textField = selectedTextField else {
+            // No text field selected. Return
+            return
+        }
+        
+        if let userInfo = notification.userInfo {
+            if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height, 0.0)
+                scrollView.contentInset = contentInsets
+                scrollView.scrollIndicatorInsets = contentInsets
+                
+                var aRect: CGRect = view.frame
+                aRect.size.height -= keyboardSize.height
+                if(!CGRectContainsPoint(aRect, textField.frame.origin)) {
+                    scrollView.scrollRectToVisible(textField.frame, animated: true)
+                }
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
     
     // MARK: Bar Button Action Functions
     

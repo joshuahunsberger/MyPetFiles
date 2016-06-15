@@ -347,6 +347,7 @@
                         <outlet property="breedTextField" destination="uEP-26-uzm" id="3MH-Xc-Zpi"/>
                         <outlet property="genderTextField" destination="7L9-N0-dSW" id="bYI-og-7w7"/>
                         <outlet property="locationTextField" destination="83K-RK-iPD" id="epg-zw-iHK"/>
+                        <outlet property="scrollView" destination="p1d-Nc-GGt" id="cVw-pP-4JK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BDa-NY-nUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
