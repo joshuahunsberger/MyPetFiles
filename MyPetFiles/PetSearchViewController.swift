@@ -119,9 +119,7 @@ class PetSearchViewController: UIViewController {
     }
     
     func keyboardWillBeHidden(notification: NSNotification) {
-        let contentInsets = UIEdgeInsetsZero
-        scrollView.contentInset = contentInsets
-        scrollView.scrollIndicatorInsets = contentInsets
+        resetScrollView()
     }
     
     // MARK: Bar Button Action Functions
@@ -130,6 +128,8 @@ class PetSearchViewController: UIViewController {
         // Hide picker view
         pickerParentView.hidden = true
         selectedTextField = nil
+        
+        resetScrollView()
     }
     
     func clearTapped() {
@@ -137,6 +137,15 @@ class PetSearchViewController: UIViewController {
         pickerParentView.hidden = true
         // TODO: Clear selected text field
         selectedTextField = nil
+        
+        resetScrollView()
+    }
+    
+    func resetScrollView() {
+        // Scroll scrollview back to bottom
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
 }
 
@@ -146,6 +155,17 @@ extension PetSearchViewController: UITextFieldDelegate {
         if (textField == animalTypeTextField || textField == genderTextField) {
             pickerView.reloadAllComponents()
             pickerParentView.hidden = false
+            
+            let contentInsets = UIEdgeInsetsMake(0, 0, pickerParentView.frame.size.height, 0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+            
+            var aRect: CGRect = view.frame
+            aRect.size.height -= PICKER_VIEW_HEIGHT + TOOLBAR_HEIGHT
+            if(!CGRectContainsPoint(aRect, textField.frame.origin)) {
+                scrollView.scrollRectToVisible(textField.frame, animated: true)
+            }
+            
             return false
         } else {
             return true
