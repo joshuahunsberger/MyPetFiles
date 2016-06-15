@@ -205,7 +205,7 @@
         <!--Find a Pet-->
         <scene sceneID="chD-Dr-HIw">
             <objects>
-                <viewController title="Find a Pet" id="l7t-Cy-fXm" customClass="PetSearchViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Find a Pet" automaticallyAdjustsScrollViewInsets="NO" id="l7t-Cy-fXm" customClass="PetSearchViewController" customModule="MyPetFiles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HL9-MR-P2F"/>
                         <viewControllerLayoutGuide type="bottom" id="wCM-VP-pxz"/>
@@ -217,7 +217,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1d-Nc-GGt">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ltd-FU-aQa">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltd-FU-aQa">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search for a Pet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tto-vM-7qg">
@@ -325,16 +325,10 @@
                                     <constraint firstItem="ltd-FU-aQa" firstAttribute="top" secondItem="p1d-Nc-GGt" secondAttribute="top" id="uPm-43-uiT"/>
                                     <constraint firstAttribute="bottom" secondItem="ltd-FU-aQa" secondAttribute="bottom" id="vy4-sH-B4v"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="uPm-43-uiT"/>
-                                    </mask>
-                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ltd-FU-aQa" firstAttribute="top" secondItem="HL9-MR-P2F" secondAttribute="bottom" id="SBt-4g-YSN"/>
                             <constraint firstItem="p1d-Nc-GGt" firstAttribute="centerX" secondItem="IWF-kg-Qr4" secondAttribute="centerX" id="TIe-hX-Ekv"/>
                             <constraint firstItem="p1d-Nc-GGt" firstAttribute="top" secondItem="HL9-MR-P2F" secondAttribute="bottom" id="Y2k-4F-YsN"/>
                             <constraint firstItem="p1d-Nc-GGt" firstAttribute="width" secondItem="IWF-kg-Qr4" secondAttribute="width" id="aCN-O5-nUR"/>
