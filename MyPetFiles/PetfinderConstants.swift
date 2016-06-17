@@ -125,7 +125,7 @@ extension PetfinderClient {
     // MARK: Petfinder Animal Types
     
     static let AnimalTypes = ["barnyard", "bird", "cat", "dog", "horse", "pig", "reptile", "smallfurry"]
-    static let AnimalTypeDisplayNames = ["Barnyard", "Bird", "Cat", "Dog", "horse", "Pig", "Reptile", "Small & Furry"]
+    static let AnimalTypeDisplayNames = ["Barnyard", "Bird", "Cat", "Dog", "Horse", "Pig", "Reptile", "Small & Furry"]
     
     
     // MARK: Petfinder Animal Sizes
