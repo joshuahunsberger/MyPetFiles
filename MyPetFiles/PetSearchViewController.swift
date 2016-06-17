@@ -147,6 +147,49 @@ class PetSearchViewController: UIViewController {
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
     }
+    
+    
+    // Interface Builder Action Functions
+    
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        if locationTextField.text!.isEmpty {
+            let errorTitle = "Missing Location"
+            let message = "Please enter a location in the top text box."
+            let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .Alert)
+            let dismissAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alert.addAction(dismissAction)
+            self.presentViewController(alert, animated: false, completion: nil)
+        } else {
+            let location = locationTextField.text!
+            let animalTypeDisplayName = animalTypeTextField.text!
+            let breed = breedTextField.text!
+            let age = ageTextField.text!
+            let genderDisplayName = genderTextField.text!
+            
+            var animalType = ""
+            if !animalTypeDisplayName.isEmpty {
+                animalType = PetfinderClient.AnimalTypes[PetfinderClient.AnimalTypeDisplayNames.indexOf(animalTypeDisplayName)!]
+            }
+            
+            var gender = ""
+            if !genderDisplayName.isEmpty {
+                gender = PetfinderClient.AnimalGenders[PetfinderClient.AnimalGenderDisplayNames.indexOf(genderDisplayName)!]
+            }
+            
+            let petSearchDict: [String: AnyObject] = [
+                PetfinderClient.ParameterKeys.Location : location,
+                PetfinderClient.ParameterKeys.Animal : animalType,
+                PetfinderClient.ParameterKeys.Breed : breed,
+                PetfinderClient.ParameterKeys.Age : age,
+                PetfinderClient.ParameterKeys.Sex : gender
+            ]
+            
+            let petVC = storyboard?.instantiateViewControllerWithIdentifier("PetTableViewController") as! PetTableViewController
+            petVC.petSearchDict = petSearchDict
+            
+            navigationController?.pushViewController(petVC, animated: true)
+        }
+    }
 }
 
 extension PetSearchViewController: UITextFieldDelegate {

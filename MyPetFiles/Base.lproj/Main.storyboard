@@ -277,6 +277,9 @@
                                                 <state key="normal" title="Search">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="searchButtonPressed:" destination="l7t-Cy-fXm" eventType="touchUpInside" id="IJT-1S-MMK"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Location (Zip or City, State)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="83K-RK-iPD">
                                                 <rect key="frame" x="20" y="102" width="560" height="30"/>
