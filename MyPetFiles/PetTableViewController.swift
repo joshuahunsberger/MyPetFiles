@@ -11,6 +11,7 @@ import UIKit
 class PetTableViewController: UITableViewController {
     // MARK: Properties
     var shelter: Shelter?
+    var petSearchDict: [String: AnyObject]?
     var pets = [Pet]()
     var emptyMessageLabel: UILabel!
     let activityIndicator = UIActivityIndicatorView()
@@ -24,7 +25,9 @@ class PetTableViewController: UITableViewController {
         activityIndicator.frame = CGRectMake(0,0,50,50)
         
         if let shelter = shelter {
-            getPets(shelter.id)
+            getPetsByShelterID(shelter.id)
+        } else if let petSearchDict = petSearchDict {
+            getPetsBySearchParameters(petSearchDict)
         }
         
         addEmptyMessageLabel()
@@ -33,7 +36,7 @@ class PetTableViewController: UITableViewController {
     
     // MARK: UI Setup functions
     
-    func getPets(shelterID: String) {
+    func getPetsByShelterID(shelterID: String) {
         let parameters: [String: AnyObject] = [PetfinderClient.ParameterKeys.ID : shelterID]
         
         addAndShowActivityIndicator()
@@ -63,6 +66,48 @@ class PetTableViewController: UITableViewController {
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    func getPetsBySearchParameters(dictionary: [String: AnyObject]) {
+        var parameters = [String: AnyObject]()
+        
+        for (key, value) in dictionary {
+            if let value = value as? String {
+                if (!value.isEmpty) {
+                    parameters[key] = value
+                }
+            }
+        }
+        
+        addAndShowActivityIndicator()
+        
+        PetfinderClient.sharedInstance.searchPets(parameters) { (results, error) in
+            if(error != nil) {
+                // Display error in alert view
+                let errorTitle = "Error"
+                let message = error!.localizedDescription
+                let alert = UIAlertController(title: errorTitle, message: message, preferredStyle: .Alert)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+                alert.addAction(dismissAction)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.stopAndRemoveActivityIndicator()
+                    self.presentViewController(alert, animated: false, completion: nil)
+                }
+            } else {
+                let petsJSON = results as! [[String: AnyObject]]
+                
+                for petJSON in petsJSON {
+                    let pet = Pet(dictionary: petJSON)
+                    self.pets.append(pet)
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.stopAndRemoveActivityIndicator()
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+
         }
     }
     
