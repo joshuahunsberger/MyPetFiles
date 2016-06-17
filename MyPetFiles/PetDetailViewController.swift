@@ -48,31 +48,45 @@ class PetDetailViewController: UIViewController {
         photoScrollView.frame = CGRectMake(0, 0, view.frame.width, SCROLLVIEW_HEIGHT)
         
         let photoCount = pet.largePhotoURLs.count
-        photoPageControl.numberOfPages = photoCount
-        photoScrollView.contentSize = CGSizeMake(photoScrollView.frame.width * CGFloat(photoCount), photoScrollView.frame.height)
-        photoScrollView.backgroundColor = UIColor.grayColor()
         
-        for index in 1...photoCount {
-            let imageView = UIImageView(frame: CGRectMake(photoScrollView.frame.width * CGFloat(index-1), 0, photoScrollView.frame.width, photoScrollView.frame.height))
+        if (photoCount == 0) {
+            photoPageControl.numberOfPages = 1
+            photoScrollView.contentSize = CGSizeMake(photoScrollView.frame.width, photoScrollView.frame.height)
+            photoScrollView.backgroundColor = UIColor.grayColor()
             
-            let activityIndicator = UIActivityIndicatorView(frame: imageView.frame)
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-            activityIndicator.center = imageView.center
-            photoScrollView.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
+            // TODO: Display placeholder image
+            let noImageLabel = UILabel(frame: CGRectMake(0, photoScrollView.frame.height/2.0 - 16, photoScrollView.frame.width, 32.0))
+            noImageLabel.text = "No image to display."
+            noImageLabel.textAlignment = .Center
+            photoScrollView.addSubview(noImageLabel)
             
-            let url = NSURL(string: pet.largePhotoURLs["\(index)"] as! String)
+        } else {
+            photoPageControl.numberOfPages = photoCount
+            photoScrollView.contentSize = CGSizeMake(photoScrollView.frame.width * CGFloat(photoCount), photoScrollView.frame.height)
+            photoScrollView.backgroundColor = UIColor.grayColor()
             
-            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
-                let data = NSData(contentsOfURL: url!)!
-                let image = UIImage(data: data)
+            for index in 1...photoCount {
+                let imageView = UIImageView(frame: CGRectMake(photoScrollView.frame.width * CGFloat(index-1), 0, photoScrollView.frame.width, photoScrollView.frame.height))
                 
-                dispatch_async(dispatch_get_main_queue()) {
-                    activityIndicator.stopAnimating()
-                    imageView.image = image
-                    imageView.contentMode = .ScaleAspectFit
-                    self.photoScrollView.addSubview(imageView)
+                let activityIndicator = UIActivityIndicatorView(frame: imageView.frame)
+                activityIndicator.hidesWhenStopped = true
+                activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+                activityIndicator.center = imageView.center
+                photoScrollView.addSubview(activityIndicator)
+                activityIndicator.startAnimating()
+                
+                let url = NSURL(string: pet.largePhotoURLs["\(index)"] as! String)
+                
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+                    let data = NSData(contentsOfURL: url!)!
+                    let image = UIImage(data: data)
+                    
+                    dispatch_async(dispatch_get_main_queue()) {
+                        activityIndicator.stopAnimating()
+                        imageView.image = image
+                        imageView.contentMode = .ScaleAspectFit
+                        self.photoScrollView.addSubview(imageView)
+                    }
                 }
             }
         }
