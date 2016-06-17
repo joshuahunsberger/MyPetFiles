@@ -13,12 +13,15 @@ class PetTableViewController: UITableViewController {
     var shelter: Shelter?
     var pets = [Pet]()
     var emptyMessageLabel: UILabel!
+    let activityIndicator = UIActivityIndicatorView()
     
     
     // MARK: View Lifecycle Functions
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.frame = CGRectMake(0,0,50,50)
         
         if let shelter = shelter {
             getPets(shelter.id)
@@ -33,14 +36,7 @@ class PetTableViewController: UITableViewController {
     func getPets(shelterID: String) {
         let parameters: [String: AnyObject] = [PetfinderClient.ParameterKeys.ID : shelterID]
         
-        // Display activity indicator while loading
-        let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
-        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
-        view.addSubview(activityIndicator)
-        activityIndicator.frame = view.frame
-        activityIndicator.center = view.center
-        activityIndicator.layer.backgroundColor = UIColor.grayColor().CGColor
-        activityIndicator.startAnimating()
+        addAndShowActivityIndicator()
         
         PetfinderClient.sharedInstance.getShelterPets(parameters) { (results, error) in
             if (error != nil) {
@@ -51,8 +47,7 @@ class PetTableViewController: UITableViewController {
                 let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
                 alert.addAction(dismissAction)
                 dispatch_async(dispatch_get_main_queue()) {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.stopAndRemoveActivityIndicator()
                     self.presentViewController(alert, animated: false, completion: nil)
                 }
             } else {
@@ -64,8 +59,7 @@ class PetTableViewController: UITableViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue()) {
-                    activityIndicator.stopAnimating()
-                    activityIndicator.removeFromSuperview()
+                    self.stopAndRemoveActivityIndicator()
                     self.tableView.reloadData()
                 }
             }
@@ -79,6 +73,21 @@ class PetTableViewController: UITableViewController {
         emptyMessageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
         emptyMessageLabel.sizeToFit()
         tableView.backgroundView = emptyMessageLabel
+    }
+    
+    func addAndShowActivityIndicator() {
+        // Display activity indicator while loading
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = view.frame
+        activityIndicator.center = view.center
+        activityIndicator.layer.backgroundColor = UIColor.grayColor().CGColor
+        activityIndicator.startAnimating()
+    }
+    
+    func stopAndRemoveActivityIndicator() {
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     
