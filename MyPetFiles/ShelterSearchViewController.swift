@@ -9,16 +9,20 @@
 import UIKit
 
 class ShelterSearchViewController: UIViewController {
-    
+    // MARK: Interface Builder Outlet Properties
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var groupNameTextField: UITextField!
     
+    
+    // MARK: View Lifecycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
     }
     
+    
+    // MARK: Interface Builder Action Functions
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
         if locationTextField.text!.isEmpty {
