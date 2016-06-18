@@ -13,6 +13,12 @@ class ShelterSearchViewController: UIViewController {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var groupNameTextField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
+    }
+    
     
     @IBAction func searchButtonPressed(sender: AnyObject) {
         if locationTextField.text!.isEmpty {

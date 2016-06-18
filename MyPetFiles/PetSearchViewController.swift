@@ -44,6 +44,8 @@ class PetSearchViewController: UIViewController {
         setupPickerView()
         
         subscribeToKeyboardNotifications()
+        
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewWillDisappear(animated: Bool) {
