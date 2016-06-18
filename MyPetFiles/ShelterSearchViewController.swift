@@ -18,6 +18,9 @@ class ShelterSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        locationTextField.delegate = self
+        groupNameTextField.delegate = self
+        
         hideKeyboardWhenTappedAround()
     }
     
@@ -43,5 +46,13 @@ class ShelterSearchViewController: UIViewController {
             
             self.navigationController!.pushViewController(shelterVC, animated: true)
         }
+    }
+}
+
+extension ShelterSearchViewController: UITextFieldDelegate {
+    // Dismiss keyboard when return is pressed
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
