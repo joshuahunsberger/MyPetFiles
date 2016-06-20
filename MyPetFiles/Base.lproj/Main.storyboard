@@ -202,6 +202,7 @@
                     <connections>
                         <outlet property="groupNameTextField" destination="9c7-gw-f7U" id="5nv-u7-XbU"/>
                         <outlet property="locationTextField" destination="xq5-ph-hfA" id="D4E-OU-ejb"/>
+                        <outlet property="scrollView" destination="LEW-TJ-wNL" id="yZa-jT-HQY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Lg-NS-oht" userLabel="First Responder" sceneMemberID="firstResponder"/>
