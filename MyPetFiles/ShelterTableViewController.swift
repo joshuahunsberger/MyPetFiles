@@ -14,6 +14,9 @@ class ShelterTableViewController: UITableViewController {
     var groupName: String?
     var shelters = [Shelter]()
     var emptyMessageLabel: UILabel!
+    let resultCount = 25
+    var offset = 0
+    var hasMore: Bool = true
     
     
     // MARK: View Lifecycle Functions 
@@ -21,6 +24,27 @@ class ShelterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchPetFinder()
+        
+        addEmptyMessageLabel()
+    }
+    
+    
+    // MARK: UI setup functions
+    
+    func addEmptyMessageLabel() {
+        emptyMessageLabel = UILabel(frame: CGRectMake(0,0,tableView.bounds.size.width,tableView.bounds.size.height))
+        emptyMessageLabel.text = "No shelters found."
+        emptyMessageLabel.textAlignment = NSTextAlignment.Center
+        emptyMessageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        emptyMessageLabel.sizeToFit()
+        tableView.backgroundView = emptyMessageLabel
+    }
+    
+    
+    // MARK: Helper functions
+    
+    func searchPetFinder() {
         if let loc = location, name = groupName {
             // Set parameters
             var parameters = [String: AnyObject]()
@@ -29,6 +53,8 @@ class ShelterTableViewController: UITableViewController {
             if (!name.isEmpty) {
                 parameters[PetfinderClient.ParameterKeys.Name] = name
             }
+            parameters[PetfinderClient.ParameterKeys.RecordCount] = resultCount
+            parameters[PetfinderClient.ParameterKeys.ResultOffset] = offset
             
             // Display activity indicator while loading
             let activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0,0,50,50))
@@ -39,7 +65,7 @@ class ShelterTableViewController: UITableViewController {
             activityIndicator.layer.backgroundColor = UIColor.grayColor().CGColor
             activityIndicator.startAnimating()
             
-            PetfinderClient.sharedInstance.searchShelters(parameters) { (results, error) in
+            PetfinderClient.sharedInstance.searchShelters(parameters) { (results, lastOffset, error) in
                 if (error != nil) {
                     // Display error in alert view
                     let errorTitle = "Error"
@@ -53,6 +79,11 @@ class ShelterTableViewController: UITableViewController {
                         self.presentViewController(alert, animated: false, completion: nil)
                     }
                 } else {
+                    if (lastOffset < (self.offset + self.resultCount) && lastOffset < PetfinderClient.Constants.MaxSearchResults) {
+                        self.hasMore = false
+                    }
+                    self.offset = lastOffset
+                    
                     let sheltersJSON = results as! [[String: AnyObject]]
                     
                     for shelterJSON in sheltersJSON {
@@ -71,20 +102,6 @@ class ShelterTableViewController: UITableViewController {
         } else {
             // Search parameters were not set
         }
-        
-        addEmptyMessageLabel()
-    }
-    
-    
-    // MARK: UI setup functions
-    
-    func addEmptyMessageLabel() {
-        emptyMessageLabel = UILabel(frame: CGRectMake(0,0,tableView.bounds.size.width,tableView.bounds.size.height))
-        emptyMessageLabel.text = "No shelters found."
-        emptyMessageLabel.textAlignment = NSTextAlignment.Center
-        emptyMessageLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        emptyMessageLabel.sizeToFit()
-        tableView.backgroundView = emptyMessageLabel
     }
     
     
@@ -105,6 +122,12 @@ class ShelterTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("ShelterCell")!
         cell.textLabel!.text = shelter.name
         cell.detailTextLabel!.text = shelter.getShortAddress()
+        
+        if (indexPath.row == shelters.count - 1) {
+            if (hasMore) {
+                searchPetFinder()
+            }
+        }
         
         return cell
     }
