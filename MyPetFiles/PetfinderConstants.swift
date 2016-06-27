@@ -25,6 +25,8 @@ extension PetfinderClient {
         static let WWWHost = "www.petfinder.com"
         static let SheltersDirectory = "/shelters/"
         static let ShelterPageExtension = ".html"
+        
+        static let MaxSearchResults = 2000
     }
     
     
@@ -76,6 +78,7 @@ extension PetfinderClient {
         static let Status = "status"
         static let Code = "code"
         static let Message = "message"
+        static let LastOffset = "lastOffset"
         
         static let Petfinder = "petfinder"
         static let Shelters = "shelters"
