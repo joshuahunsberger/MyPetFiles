@@ -37,15 +37,30 @@ extension PetfinderClient {
             - parameters: The key value pairs to send to Petfinder.
             - completionHandlerForSearchShelters: The completion handler in which the results will be handled or errors processed.
      */
-    func searchShelters(parameters: [String: AnyObject], completionHandlerForSearchShelters: (results: AnyObject!, error: NSError?) -> Void) {
+    func searchShelters(parameters: [String: AnyObject], completionHandlerForSearchShelters: (results: AnyObject!, lastOffset: Int, error: NSError?) -> Void) {
         func sendError(error: String){
             let userInfo = [NSLocalizedDescriptionKey: error]
-            completionHandlerForSearchShelters(results: nil, error: NSError(domain: "searchShelters", code: 1, userInfo: userInfo))
+            completionHandlerForSearchShelters(results: nil, lastOffset: 0, error: NSError(domain: "searchShelters", code: 1, userInfo: userInfo))
         }
         
         taskForGETMethod(Methods.FindShelter, parameters: parameters) { (result, error) in
             guard (error == nil) else {
                 sendError(error!.localizedDescription)
+                return
+            }
+            
+            guard let lastOffsetArray = result[JSONResponseKeys.LastOffset] as? [String: AnyObject] else {
+                sendError("Unable to retrieve last offset.")
+                return
+            }
+            
+            guard let lastOffsetString = lastOffsetArray[JSONResponseKeys.Tag] as? String else {
+                sendError("Unable to retrieve last offset number.")
+                return
+            }
+            
+            guard let lastOffset = Int(lastOffsetString) else {
+                sendError("Last offset is not an integer.")
                 return
             }
             
@@ -65,7 +80,7 @@ extension PetfinderClient {
             }
             
             // Call the completion handler with the array of shelter JSON entries
-            completionHandlerForSearchShelters(results: shelterArray, error: nil)
+            completionHandlerForSearchShelters(results: shelterArray, lastOffset: lastOffset, error: nil)
         }
     }
     
